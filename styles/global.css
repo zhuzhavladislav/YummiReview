@@ -1,0 +1,107 @@
+/* div {
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+} */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    font-family: 'Inter';
+    color: #1d2120;
+}
+
+a:link {
+    text-decoration: none;
+    color:#1d2120;
+}
+a:visited {
+    text-decoration: none;
+    color:#1d2120;
+}
+a:hover {
+    text-decoration: none;
+    color:#1d2120;
+}
+a:active {
+    text-decoration: none;
+    color:#1d2120;
+}
+
+h1 {
+    font-size: 5vw;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 3.5vw;
+    font-weight: 800;
+}
+h3 {
+    font-size: 2.5vw;
+    font-weight: 700;
+}
+h4 {
+    font-size: 1.5vw;
+    font-weight: 600;
+}
+p {
+    font-size: calc(1.2vmin + 0.4vw);
+}
+
+main {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.stars{
+    display: block;
+    margin-bottom: 10px;
+}
+.star {
+    display: inline-block;
+    width: 11px;
+    height: 10px;
+    background: url(/images/icons/stars.svg) no-repeat 0 0;
+    background-size: cover;
+}
+.star.white {
+    background-position: 0;
+}
+.star.orange {
+    background-position: -11px 0;
+}
+.star.grey {
+    background-position: -22px 0;
+}
+.star.blue {
+    background-position: -33px 0;
+}
+
+.button{
+    width: max-content;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: #1d2120;
+    font-size: calc(0.8vmin + 0.8vw);
+    font-weight: 300;
+    transition: 0.2s;
+}
+.button:hover{
+    cursor: pointer;
+    border-color: #f86021;
+    color: #f86021;
+}
