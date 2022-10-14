@@ -36,14 +36,14 @@
 .item{
     margin-top: 30px;
     display: grid;
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: 3fr 9fr;
     grid-auto-rows: auto;
     gap: 2%;
     align-items: center;
 }
 .item-image{
     width: 100%;
-    height: calc(20vmin + 5vw);
+    height: calc(20vmin + 10vw);
     min-height: 150px;
     max-height: 360px;
     max-width: 300px;
