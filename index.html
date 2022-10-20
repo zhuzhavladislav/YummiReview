@@ -13,28 +13,37 @@
 </head>
 
 <body>
+    <!-- Шапка страницы -->
+    <!-- Добавить меню навигаци -->
     <header>
-        <img src="images/logo.png" />
+        <img alt="Логотип YummiReview" src="images/logo.png" />
+        <nav class="menu">
+              <a href="./index.html">Главная</a>
+              <a href="#">О рейтинге</a>
+              <a href="#">Предложить заведение</a>
+          </nav>
         <div class="search">
             <input type="text" placeholder="Поиск" />
             <div class="filters">
-                <img src="images/icons/filter-left.svg">Фильтры<img style="width: 20px"
+                <img alt="filter" src="images/icons/filter-left.svg">Фильтры<img alt="Развернуть фильтры" style="width: 20px"
                     src="images/icons/arrow-down.svg">
             </div>
         </div>
     </header>
+    <!-- Основная часть -->
     <main>
-        <h1>Категории и подборки</h1>
+        <h1>Обзоры заведений общественного питания</h1>
         <div class="category">
             <div class="category-title">
-                <h2>РЕСТОРАНЫ</h2>
+                <h2>ЛУЧШИЕ РЕСТОРАНЫ РОССИИ</h2>
                 <a class="button" href="pages/restaraunts.html">Смотреть все</a>
             </div>
-            <ul class="category-items">
-                <li>
+            <div class="category-items">
+                <!-- Тут была ошибка, я вел это списком, переделал на section -->
+                <section>
                     <a href="./pages/restaraunts/Edateka.html">
-                        <img src="images/items/jzeus2v9o4g.jpg">
-                        <h2>Едатека</h2>
+                        <img alt="Помещение ресторана Едатека" src="images/items/jzeus2v9o4g.jpg">
+                        <p class="category-items-title">Едатека</p>
                         <div class="stars">
                             <div class="star orange"></div>
                             <div class="star orange"></div>
@@ -45,11 +54,11 @@
                         <p class="kitchen">Мировая кухня</p>
                         <p class="city">Самара</p>
                     </a>
-                </li>
-                <li>
+                </section>
+                <section>
                     <a href="">
-                        <img src="images/items/30258560089750608_e7a4.jpg">
-                        <h2>Kaif provenance</h2>
+                        <img alt="Помещение ресторана Kaif provenance" src="images/items/30258560089750608_e7a4.jpg">
+                        <p class="category-items-title">Kaif provenance</p>
                         <div class="stars">
                             <div class="star orange"></div>
                             <div class="star orange"></div>
@@ -59,11 +68,11 @@
                         <p class="kitchen">Европейская кухня</p>
                         <p class="city">Москва</p>
                     </a>
-                </li>
-                <li>
+                </section>
+                <section>
                     <a href="">
-                        <img src="images/items/30258560089567514_2af2.jpg">
-                        <h2>Tatar by tubetey</h2>
+                        <img alt="Помещение ресторана Tatar by tubetey" src="images/items/30258560089567514_2af2.jpg">
+                        <p class="category-items-title">Tatar by tubetey</p>
                         <div class="stars">
                             <div class="star orange"></div>
                             <div class="star orange"></div>
@@ -74,11 +83,11 @@
                         <p class="kitchen">Восточноевропейская кухня</p>
                         <p class="city">Казань</p>
                     </a>
-                </li>
-                <li>
+                </section>
+                <section>
                     <a href="">
-                        <img src="images/items/30258560074813854_33cc.jpg">
-                        <h2>Паруса</h2>
+                        <img alt="Помещение ресторана Паруса" src="images/items/30258560074813854_33cc.jpg">
+                        <p class="category-items-title">Паруса</p>
                         <div class="stars">
                             <div class="star orange"></div>
                             <div class="star orange"></div>
@@ -89,108 +98,55 @@
                         <p class="kitchen">Европейская кухня</p>
                         <p class="city">Санкт-Петербург</p>
                     </a>
-                </li>
-            </ul>
-        </div>
-        <div class="category">
-            <div class="category-title">
-                <h2>КАФЕ</h2>
-                <a class="button" href="">
-                    Смотреть все
-                </a>
+                </section>
             </div>
-            <ul class="category-items">
-                <li>
-                    <a href="">
-                        <img src="images/items/30258560049922983_3a9c.jpg">
-                        <h2>Your Mojo</h2>
-                        <div class="stars">
-                            <div class="star orange"></div>
-                            <div class="star orange"></div>
-                            <div class="star orange"></div>
-                            <div class="star orange"></div>
-                        </div>
-                        <p class="kitchen">Авторская кухня</p>
-                        <p class="city">Самара</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="images/items/4503599647162164_b754.jpg">
-                        <h2>Му-му</h2>
-                        <div class="stars">
-                            <div class="star orange"></div>
-                            <div class="star orange"></div>
-                            <div class="star orange"></div>
-                            <div class="star orange"></div>
-                        </div>
-                        <p class="kitchen">Домашняя кухня</p>
-                        <p class="city">Москва</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="images/items/30258560089723417_1603.jpg">
-                        <h2>Кебаб</h2>
-                        <div class="stars">
-                            <div class="star orange"></div>
-                            <div class="star orange"></div>
-                            <div class="star orange"></div>
-                            <div class="star orange"></div>
-                        </div>
-                        <p class="kitchen">Турецкая кухня</p>
-                        <p class="city">Санкт-Петербург</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="images/items/30258560089314340_e911.jpg">
-                        <h2>Винил</h2>
-                        <div class="stars">
-                            <div class="star orange"></div>
-                            <div class="star orange"></div>
-                            <div class="star orange"></div>
-                            <div class="star orange"></div>
-                            <div class="star orange"></div>
-                        </div>
-                        <p class="kitchen">Мировая кухня</p>
-                        <p class="city">Казань</p>
-                    </a>
-                </li>
-            </ul>
+        </div>
+
+<!-- "images/items/30258560049922983_3a9c.jpg"
+Your Mojo
+Авторская кухня
+Самара
+
+"images/items/4503599647162164_b754.jpg"
+Му-му
+Домашняя кухня
+Москва
+
+"images/items/30258560089723417_1603.jpg"
+Кебаб
+Турецкая кухня
+Санкт-Петербург
+
+"images/items/30258560089314340_e911.jpg"
+Винил
+Мировая кухня
+Казань -->
         </div>
     </main>
+    <!-- Футер -->
     <footer>
         <div class="footer-top">
-            <img src="images/logo.png" />
+            <img alt="Логотип YummiReview" src="images/logo.png" />
             <div>
-                <h3>+7 (777) 777-77-77</h3>
+                <p>+7 (777) 777-77-77</p>
                 <p>zhuzha_vladislav@mail.ru</p>
             </div>
         </div>
         <hr class="footer-line">
-        <ul class="footer-items">
-            <li>
-                <a href="">
-                    О проекте
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    Вакансии
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    Мобильная версия
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    Правила
-                </a>
-            </li>
-        </ul>
+        <div class="footer-items">
+            <a href="">
+                О проекте
+            </a>
+            <a href="">
+                Вакансии
+            </a>
+            <a href="">
+                Мобильная версия
+            </a>
+            <a href="">
+                Правила
+            </a>
+        </div>
         <hr class="footer-line">
         <div class="copyright">
             <p>© 2022 YummiReview Перепечатка и использование любых материалов (текстовых и графических элементов),

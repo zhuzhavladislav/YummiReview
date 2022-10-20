@@ -11,7 +11,21 @@ header img {
     width: auto;
     height: 50px;
 }
-
+.menu{
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+    font-size: 18px;
+    gap: 1.5vw;
+    transition: 0.2s;
+}
+.menu a:hover {
+    cursor: pointer;
+    color: #f86021;
+}
+.menu a:active {
+    color: #f86021;
+}
 .search {
     display: grid;
     grid-template-columns: auto auto;

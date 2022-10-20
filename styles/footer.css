@@ -20,27 +20,21 @@ footer img {
     align-items: center;
     gap: 30px;
 }
-.footer-top div h3{
-    font-size: 20px;
-    font-weight: 700;
-}
 .footer-top div p{
     font-size: 14px;
     font-weight: 300;
-}
 
+}
 .footer-line{
     width: auto;
     height: 0.1px;
     background-color:#1d2120;
-}
 
+}
 .footer-items {
-    list-style: none;
     display: flex;
     gap: 2vw;
 }
-
 .footer-items a {
     text-decoration: none;
     text-align: center;
@@ -51,14 +45,7 @@ footer img {
 .footer-items a:hover{
     color:#f86021;
 }
-.footer-items ul {
-    display: block;
-    list-style-type: disc;
-}
-.footer-items li{
-    width: auto;
-    overflow:hidden;
-}
+
 .copyright p{
     width: 40%;
     font-size: 12px;

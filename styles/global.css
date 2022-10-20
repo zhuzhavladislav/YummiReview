@@ -37,20 +37,20 @@ a:active {
 }
 
 h1 {
-    font-size: 5vw;
+    font-size: 4vw;
     font-weight: 900;
 }
 
 h2 {
-    font-size: 3.5vw;
+    font-size: 2.5vw;
     font-weight: 800;
 }
 h3 {
-    font-size: 2.5vw;
+    font-size: 1.5vw;
     font-weight: 700;
 }
 h4 {
-    font-size: 1.5vw;
+    font-size: 1vw;
     font-weight: 600;
 }
 p {
@@ -96,7 +96,7 @@ main {
     border-radius: 10px;
     border-width: 1px;
     border-color: #1d2120;
-    font-size: calc(0.8vmin + 0.8vw);
+    font-size: calc(0.6vmin + 0.6vw);
     font-weight: 300;
     transition: 0.2s;
 }

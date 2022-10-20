@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YummiReview - Рейтинг ресторанов</title>
+    <title>YummiReview - Рейтинг ресторанов России</title>
     <link rel="stylesheet" href="../styles/global.css" type="text/css" />
     <link rel="stylesheet" href="../styles/header.css" type="text/css" />
     <link rel="stylesheet" href="../styles/footer.css" type="text/css" />
@@ -14,26 +14,31 @@
 
 <body>
     <header>
-        <a href="../index.html"><img src="../images/logo.png" /></a>
+        <img alt="Логотип YummiReview" src="../images/logo.png" />
+        <nav class="menu">
+              <a href="../index.html">Главная</a>
+              <a href="#">О рейтинге</a>
+              <a href="#">Предложить заведение</a>
+          </nav>
         <div class="search">
             <input type="text" placeholder="Поиск" />
             <div class="filters">
-                <img src="../images/icons/filter-left.svg">Фильтры<img style="width: 20px"
+                <img alt="filter" src="../images/icons/filter-left.svg">Фильтры<img alt="Развернуть фильтры" style="width: 20px"
                     src="../images/icons/arrow-down.svg">
             </div>
         </div>
     </header>
     <main>
-        <h1>Рейтинг ресторанов</h1>
-        <div class="item">
-            <img class="item-image" src="../images/items/jzeus2v9o4g.jpg">
+        <h1>Рейтинг лучших ресторанов России</h1>
+        <category class="item">
+            <img alt="Фото ресторана Едатека" class="item-image" src="../images/items/jzeus2v9o4g.jpg">
             <div class="item-second-column">
                 <div class="item-title">
-                    <h2>
+                    <p class="title-text">
                         Едатека
-                    </h2>
+                    </p>
                     <div class="mark">
-                        <h3>4.7</h3>
+                        <p class="points">4.7</p>
                         <div class="stars">
                             <div class="star orange"></div>
                             <div class="star orange"></div>
@@ -41,7 +46,7 @@
                             <div class="star orange"></div>
                             <div class="star orange"></div>
                         </div>
-                        <p>ОЦЕНКА ГОСТЕЙ</p>
+                        <p class="points-text">ОЦЕНКА ГОСТЕЙ</p>
                     </div>
                 </div>
                 <p>
@@ -57,23 +62,23 @@
                     Подробнее
                 </a>
             </div>
-        </div>
-        <div class="item">
+        </category>
+        <category class="item">
             <img class="item-image" src="../images/items/30258560089750608_e7a4.jpg">
             <div class="item-second-column">
                 <div class="item-title">
-                    <h2>
+                    <p class="title-text">
                         Kaif provenance
-                    </h2>
+                    </p>
                     <div class="mark">
-                        <h3>4.0</h3>
+                        <p class="points">4.0</p>
                         <div class="stars">
                             <div class="star orange"></div>
                             <div class="star orange"></div>
                             <div class="star orange"></div>
                             <div class="star orange"></div>
                         </div>
-                        <p>ОЦЕНКА ГОСТЕЙ</p>
+                        <p class="points-text">ОЦЕНКА ГОСТЕЙ</p>
                     </div>
                 </div>
                 <div>
@@ -91,16 +96,16 @@
                     Подробнее
                 </a>
             </div>
-        </div>
-        <div class="item">
+        </category>
+        <category class="item">
             <img class="item-image" src="../images/items/30258560089567514_2af2.jpg">
             <div class="item-second-column">
                 <div class="item-title">
-                    <h2>
+                    <p class="title-text">
                         Tatar by tubetey
-                    </h2>
+                    </p>
                     <div class="mark">
-                        <h3>4.8</h3>
+                        <p class="points">4.8</p>
                         <div class="stars">
                             <div class="star orange"></div>
                             <div class="star orange"></div>
@@ -108,7 +113,7 @@
                             <div class="star orange"></div>
                             <div class="star orange"></div>
                         </div>
-                        <p>ОЦЕНКА ГОСТЕЙ</p>
+                        <p class="points-text">ОЦЕНКА ГОСТЕЙ</p>
                     </div>
                 </div>
                 <div>
@@ -126,16 +131,16 @@
                     Подробнее
                 </a>
             </div>
-        </div>
-        <div class="item">
+        </category>
+        <category class="item">
             <img class="item-image" src="../images/items/30258560074813854_33cc.jpg">
             <div class="item-second-column">
                 <div class="item-title">
-                    <h2>
+                    <p class="title-text">
                         Паруса
-                    </h2>
+                    </p>
                     <div class="mark">
-                        <h3>4.5</h3>
+                        <p class="points">4.7</p>
                         <div class="stars">
                             <div class="star orange"></div>
                             <div class="star orange"></div>
@@ -143,7 +148,7 @@
                             <div class="star orange"></div>
                             <div class="star orange"></div>
                         </div>
-                        <p>ОЦЕНКА ГОСТЕЙ</p>
+                        <p class="points-text">ОЦЕНКА ГОСТЕЙ</p>
                     </div>
                 </div>
                 <div>
@@ -161,23 +166,23 @@
                     Подробнее
                 </a>
             </div>
-        </div>
-        <div class="item">
+        </category>
+        <category class="item">
             <img class="item-image" src="../images/items/30258560082784920_a6e8.jpg">
             <div class="item-second-column">
                 <div class="item-title">
-                    <h2>
+                    <p class="title-text">
                         Перчини grill&wine
-                    </h2>
+                    </p>
                     <div class="mark">
-                        <h3>3.7</h3>
+                        <p class="points">3.7</p>
                         <div class="stars">
                             <div class="star orange"></div>
                             <div class="star orange"></div>
                             <div class="star orange"></div>
                             <div class="star orange"></div>
                         </div>
-                        <p>ОЦЕНКА ГОСТЕЙ</p>
+                        <p class="points-text">ОЦЕНКА ГОСТЕЙ</p>
                     </div>
                 </div>
                 <div>
@@ -195,39 +200,31 @@
                     Подробнее
                 </a>
             </div>
-        </div>
+        </category>
     </main>
     <footer>
         <div class="footer-top">
-            <img src="../images/logo.png" />
+            <img alt="Логотип YummiReview" src="../images/logo.png" />
             <div>
-                <h3>+7 (777) 777-77-77</h3>
+                <p>+7 (777) 777-77-77</p>
                 <p>zhuzha_vladislav@mail.ru</p>
             </div>
         </div>
         <hr class="footer-line">
-        <ul class="footer-items">
-            <li>
-                <a href="">
-                    О проекте
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    Вакансии
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    Мобильная версия
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    Правила
-                </a>
-            </li>
-        </ul>
+        <div class="footer-items">
+            <a href="">
+                О проекте
+            </a>
+            <a href="">
+                Вакансии
+            </a>
+            <a href="">
+                Мобильная версия
+            </a>
+            <a href="">
+                Правила
+            </a>
+        </div>
         <hr class="footer-line">
         <div class="copyright">
             <p>© 2022 YummiReview Перепечатка и использование любых материалов (текстовых и графических элементов),
