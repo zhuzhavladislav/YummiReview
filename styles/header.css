@@ -9,13 +9,13 @@ header {
 }
 header img {
     width: auto;
-    height: 50px;
+    height: 3vw;
 }
 .menu{
     display: flex;
     margin-left: 10px;
     align-items: center;
-    font-size: 18px;
+    font-size: calc(1.2vmin + 0.6vw);
     gap: 1.5vw;
     transition: 0.2s;
 }
@@ -35,11 +35,11 @@ header img {
 .search input {
     width: auto;
     min-width: 100px;
-    border-width: 0 0 2px;
+    border-width: 0 0 1px;
     outline: none;
-    background: url(../images/icons/search.svg) no-repeat scroll 0px 3px;
-    background-size: 18px;
-    font-size: 20px;
+    background: url(../images/icons/search.svg) no-repeat scroll 0px calc(0.1vmin + 0.1vw);
+    background-size: calc(1.2vmin + 0.6vw);
+    font-size: calc(1.2vmin + 0.6vw);
     padding-left: 25px;
     padding-bottom: 5px;
     color: #1d2120;
@@ -52,7 +52,7 @@ header img {
 .filters {
     display: flex;
     align-items: center;
-    font-size: 18px;
+    font-size: calc(1.2vmin + 0.6vw);
     gap: 5px;
     transition: 0.2s;
 }
@@ -64,6 +64,6 @@ header img {
     color: #f86021;
 }
 .filters img {
-    width: 30px;
-    height: 30px;
+    width: calc(1.5vmin + 0.8vw);
+    height: calc(1.5vmin + 0.8vw);
 }

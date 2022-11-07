@@ -23,11 +23,22 @@
     </header>
     <main>
         <p>Предложить заведение</p>
-        <input type="text" name="name" placeholder="Название ресторана" spellcheck="false">
-        <input type="text" name="address" placeholder="Адрес" spellcheck="false">
-        <input type="text" name="comments" placeholder="Комментарий" spellcheck="false">
-        <input type="text" name="email" placeholder="Электронная почта" spellcheck="false">
-        <button type="submit" class="btn-base">Предложить</button>
+        <form id="validateForm" action="" novalidate>
+            <input type="text" id="name" placeholder="Название заведения" class="input _req">
+            <label for="name" class="form-label">В формате: а-Я, a-Z, 0-9. Минимум 1 символ</label>
+            <input type="text" id="address" placeholder="Адрес" class="input _req">
+            <label for="address" class="form-label">Название улицы, проспекта и т.п., номер дома, номер квартиры<br>записываются в одну строку и отделяются запятыми.</label>
+            <textarea type="text" id="comment"  placeholder="Комментарий" class="input _req" style="height: 100px;"></textarea>
+            <label for="comment" class="form-label">Минимум 10 символов, максимум 200.</label>
+            <input type="text" id="email" placeholder="Электронная почта" class="input _req">
+            <label for="email" class="form-label">Формат email. Пример: test@domain.ru</label>
+            <div id="checkbox-div" style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px; margin-top: 20px;">
+                <input type="checkbox" id="formAgreement" class="checkbox-agreement _req">
+                <label id="agreementLabel" for="formAgreement" class="checkbox__label">Я даю своё согласие на обработку персональных данных</label>    
+            </div>
+            <label for="checkbox-div" class="form-label" style="margin-left: 0px;">*Для продолжения необходимо принять условия соглашения</label>
+            <button type="submit">Предложить</button>
+        </form>
     </main>
     <footer>
         <div class="footer-top">
@@ -58,6 +69,6 @@
                 допускается только с письменного разрешения редакции.</p>
         </div>
     </footer>
+    <script src="../scripts/validate.js"></script>
 </body>
-
 </html>
