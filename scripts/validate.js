@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', formSend)
 
     async function formSend(e) {
-        e.preventDefault(); //запрещаем стандартную отправку формы
-        let error = formValidate(form) //Проверка на ошибки
-        let formData = new FormData(form); //Берем все данные полей
+        e.preventDefault() //запрещаем стандартную отправку формы
+        let error = formValidate() //Проверка на ошибки
+        let formData = new FormData(form) //Берем все данные полей
         
         if (error === 0) {
             let response = await fetch('sendmail.php', {
@@ -25,13 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function formValidate(form) {
+    function formValidate() {
         let error = 0
-        let formReq = document.querySelectorAll('._req');
+        let formReq = document.querySelectorAll('._req')
         let formLabel = document.querySelectorAll('.form-label')
 
         for(let index = 0; index <formReq.length; index++) {
-            const element = formReq[index];
+            const element = formReq[index]
             const elementLabel = formLabel[index]
             formRemoveError(element)
             formRemoveError(elementLabel)
