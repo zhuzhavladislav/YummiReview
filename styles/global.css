@@ -105,3 +105,27 @@ main {
     border-color: #f86021;
     color: #f86021;
 }
+#to-top{
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    right: 30px;
+    bottom: 30px;
+    background: url(../images/icons/arrow-up.svg) 0 0 no-repeat;
+    opacity: 0;
+    transition: 0.2s;
+}
+#to-top.display{
+    cursor: pointer;
+    display: flex;
+    opacity: 1;
+}
+#to-top:hover{
+    animation-name: changeBg;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+@keyframes changeBg{
+    0%,100%  {background: url(../images/icons/arrow-up.svg);}
+    50% {background: url(../images/icons/arrow-up-hover.svg);}
+ }
