@@ -39,7 +39,7 @@
 .item{
     margin-top: 30px;
     display: grid;
-    grid-template-columns: 3fr 9fr;
+    grid-template-columns: 4fr 8fr;
     grid-auto-rows: auto;
     gap: 2%;
     align-items: center;
@@ -49,10 +49,77 @@
     height: calc(20vmin + 10vw);
     min-height: 150px;
     max-height: 360px;
-    max-width: 300px;
     min-width: 50px;
     object-fit: cover;
     border-radius: 10px;
+}
+.slideshow-container{
+    max-width: 100%;
+    position: relative;
+    /* margin: auto; */
+}
+.slide-prev, .slide-next{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-size: 18px;
+    transition: 0.6s;
+    border-radius: 0 6px 6px 0;
+    user-select: none;
+    opacity: 0;
+}
+.slide-next{
+    right: 0;
+    border-radius: 6px 0 0 6px;
+}
+.slide-prev.active, .slide-next.active{
+    color: white;
+    background-color: rgba(0,0,0,0.4);
+    opacity: 1;
+}
+.slide-prev.active:hover, .slide-next.active:hover{
+    color: white;
+    background-color: rgba(0,0,0,0.7);
+    opacity: 1;
+}
+.slide-text{
+    color: white;
+    padding: 8px 12px;
+    position: absolute;
+    font-size: calc(1vmin + 1vw);
+    text-shadow: 0 0 5px #000000;
+    bottom: 10%;
+}
+.dot{
+    cursor: pointer;
+    height: calc(0.5vmin + 0.5vw);
+    width: calc(0.5vmin + 0.5vw);;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active, dot:hover{
+    background-color: #717171;
+}
+.fade{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@-webkit-keyframes fade{
+    from{opacity: .4;}
+    to{opacity: 1;}
+}
+@keyframes fade{
+    from{opacity: .4;}
+    to{opacity: 1;}
 }
 .item-second-column{
     display: grid;
@@ -89,3 +156,4 @@
 .desc-second-column h3{
     margin-top: 20px;
 }
+

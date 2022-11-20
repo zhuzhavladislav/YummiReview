@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../../styles/footer.css" type="text/css" />
     <link rel="stylesheet" href="../../styles/one-establishment.css" type="text/css" />
     <script src="../../scripts/up.js"></script>
+    <script src="../../scripts/slide.js"></script>
 </head>
 
 <body>
@@ -40,7 +41,27 @@
             </div>
         </div>
         <div class="item">
-            <img alt="Изображение ресторана Едатека" class="item-image" src="../../images/items/30258560089567514_2af2.jpg">
+            <div id="slideshow-container" class="slideshow-container">
+                <div class="slide fade">
+                    <img alt="Изображение ресторана Едатека" class="item-image" src="../../images/items/30258560089567514_2af2.jpg">
+                    <div class="slide-text">Главный зал</div>
+                </div>
+                <div class="slide fade">
+                    <img alt="Изображение ресторана Едатека" class="item-image" src="../../images/items/30258560084054518_ed94.jpg">
+                    <div class="slide-text">Блюда</div>
+                </div>
+                <div class="slide fade">
+                    <img alt="Изображение ресторана Едатека" class="item-image" src="../../images/items/XXXL.webp">
+                    <div class="slide-text">Главный вход</div>
+                </div>
+                <a id="prev-button" class="slide-prev">&#10094</a>
+                <a id="next-button" class="slide-next">&#10095</a>
+                <div style="text-align: center;">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
             <div class="item-second-column">
                     <p><img alt="Иконка кухни" src="../../images/icons/kitchen.svg"> Татарская кухня</p>
                     <p><img alt="Иконка города" src="../../images/icons/city.svg"> Казань</p>
