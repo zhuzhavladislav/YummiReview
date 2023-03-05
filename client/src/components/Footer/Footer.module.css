@@ -15,34 +15,34 @@ footer img {
     width: auto;
     height: 3vw;
 }
-.footer-top {
+.footerTop {
     display: flex;
     align-items: center;
     gap: 30px;
 }
-.footer-top div p{
+.footerTop div p{
     font-size: 14px;
     font-weight: 300;
 
 }
-.footer-line{
+.footerLine{
     width: auto;
     height: 0.1px;
     background-color:#1d2120;
 
 }
-.footer-items {
+.footerItems {
     display: flex;
     gap: 2vw;
 }
-.footer-items a {
+.footerItems a {
     text-decoration: none;
     text-align: center;
     color: #1d2120;
     position: relative;
     transition: 0.2s;
 }
-.footer-items a:hover{
+.footerItems a:hover{
     color:#f86021;
 }
 

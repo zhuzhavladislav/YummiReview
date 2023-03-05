@@ -37,7 +37,7 @@ header img {
     min-width: 100px;
     border-width: 0 0 1px;
     outline: none;
-    background: url(../images/icons/search.svg) no-repeat scroll 0px calc(0.1vmin + 0.1vw);
+    background: url(../../images/icons/search.svg) no-repeat scroll 0px calc(0.1vmin + 0.1vw);
     background-size: calc(1.2vmin + 0.6vw);
     font-size: calc(1.2vmin + 0.6vw);
     padding-left: 25px;

@@ -66,25 +66,6 @@ main {
     display: block;
     margin-bottom: 10px;
 }
-.star {
-    display: inline-block;
-    width: 11px;
-    height: 10px;
-    background: url(../images/icons/stars.svg) no-repeat 0 0;
-    background-size: cover;
-}
-.star.white {
-    background-position: 0;
-}
-.star.orange {
-    background-position: -11px 0;
-}
-.star.grey {
-    background-position: -22px 0;
-}
-.star.blue {
-    background-position: -33px 0;
-}
 
 .button{
     width: max-content;
@@ -105,7 +86,7 @@ main {
     border-color: #f86021;
     color: #f86021;
 }
-#to-top{
+#toTop{
     position: fixed;
     width: 40px;
     height: 40px;
@@ -115,12 +96,12 @@ main {
     opacity: 0;
     transition: 0.2s;
 }
-#to-top.display{
+#toTop.display{
     cursor: pointer;
     display: flex;
     opacity: 1;
 }
-#to-top:hover{
+#toTop:hover{
     animation-name: changeBg;
     animation-duration: 2s;
     animation-iteration-count: infinite;

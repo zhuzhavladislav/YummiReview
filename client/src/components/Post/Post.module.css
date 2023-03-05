@@ -1,29 +1,29 @@
-p{
+.title{
     margin-top: 0px;
     font-size: 18px;
     font-weight: 700;  
 }
-main{
+.main{
     display: grid;
     padding-top: 70px;
     padding-bottom: 40px;
     justify-content: center;
 }
-form{
+.form{
     display: grid;
     justify-content: center;
 }
-.form-label{
+.formLabel{
     display: none;
     margin-left: 10px;
     font-size: 12px;
     font-style: italic;
 }
-.form-label.error{
+.formLabel.error{
     display: flex;
     color: red;
 }
-.form-label.correct {
+.formLabel.correct {
     display: none;
 }
 .input {
