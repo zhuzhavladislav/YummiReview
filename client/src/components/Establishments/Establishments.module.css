@@ -84,3 +84,11 @@ h1 {
     height: calc(1vmin + 0.5vw);
 }
 
+.loading, .notFound{
+    display: flex;
+    height: 60vh;
+    font-size: 4vw;
+    font-weight: 900;
+    align-items: center;
+    justify-content: center;
+}

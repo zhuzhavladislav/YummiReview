@@ -3,13 +3,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Card = ({ data }) => {
-  let points = ((data.score.food + data.score.service + data.score.atmosphere + data.score.interier) / 4).toFixed(1)
+  let points = ((data.scoreFood + data.scoreService + data.scoreAtmosphere + data.scoreInterier) / 4).toFixed(1)
   points > 5 ? points = 5 : points < 0 ? points = 0 : points
-  
+  console.log(data);
   return (
     <section>
-      <Link to="">
-        <img alt={"Помещение ресторана " + data.name} src={data.image.edateka} />
+      <Link to={`/establishments/${data.id}`}>
+        <img alt={"Помещение ресторана " + data.name} src={`/api/uploads/${data.image}`} />
         <h3 className={s.categoryItemsTitle}>{data.name}</h3>
         <div className={s.stars} data-total-value={Math.round(points)}>
           <div className={s.star} data-item-value="5"></div>

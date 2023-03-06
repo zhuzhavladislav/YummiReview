@@ -194,3 +194,11 @@
     height: auto;
     max-width: 1200px;
 }
+.loading, .notFound{
+    display: flex;
+    height: 60vh;
+    font-size: 4vw;
+    font-weight: 900;
+    align-items: center;
+    justify-content: center;
+}

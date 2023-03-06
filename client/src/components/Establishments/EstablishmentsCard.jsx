@@ -8,12 +8,12 @@ import phone from "../../images/icons/phone.svg"
 
 
 const EstablishmentsCard = ({ data }) => {
-    let points = ((data.score.food + data.score.service + data.score.atmosphere + data.score.interier) / 4).toFixed(1)
+    let points = ((data.scoreFood + data.scoreService + data.scoreAtmosphere + data.scoreInterier) / 4).toFixed(1)
     points > 5 ? points = 5 : points < 0 ? points = 0 : points
 
     return (
         <section className={s.item}>
-            <img alt={"Фото ресторана " + data.name} className={s.itemImage} src={data.image.edateka} />
+            <img alt={"Фото ресторана " + data.name} className={s.itemImage} src={`/api/uploads/${data.image}`} />
             <div className={s.itemSecondColumn}>
                 <div className={s.itemTitle}>
                     <h2 className={s.titleText}>
@@ -40,7 +40,7 @@ const EstablishmentsCard = ({ data }) => {
                     <p><img className={s.itemIcon} src={money} /> Средний чек {data.money}₽</p>
                     <p><img className={s.itemIcon} src={phone} /> {data.number}</p>
                 </div>
-                <Link className="button" style={{ marginTop: 10, marginBottom: 20 }} to="/">
+                <Link className="button" style={{ marginTop: 10, marginBottom: 20 }} to={`/establishments/${data.id}`}>
                     Подробнее
                 </Link>
             </div>

@@ -26,6 +26,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "dist"),
         assetModuleFilename: "images/[hash][ext][query]",
+        filename: 'bundle.js',
+        publicPath: '/',
     },
 
     module: {
@@ -73,7 +75,10 @@ module.exports = {
         historyApiFallback: true,
         proxy: {
             context: () => true,
-            target: "http://localhost:5000"
+            "/api": {
+                target: "http://localhost:5000"
+            }
+            
         }
     },
 };

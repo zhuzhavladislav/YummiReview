@@ -14,10 +14,11 @@ const App = () => {
       <Header />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Main/>} />
+          <Route path="/" exact={true} element={<Main/>} />
           <Route path="/establishments" element={<Establishments/>} />
-          <Route path="/establishment" element={<Establishment/>} />
+          <Route path="/establishments/:id" element={<Establishment/>} />
           <Route path="/add" element={<Post/>} />
+          <Route path="*" element={<p style={{display: "flex", height: "60vh", fontSize: "4vw", fontWeight: 900, alignItems: "center", justifyContent: "center"}}>Ресурс не найден</p>} />
         </Routes>
       </BrowserRouter>
       <Footer />

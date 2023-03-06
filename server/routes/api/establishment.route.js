@@ -3,7 +3,11 @@ const router = Router()
 const conn = require("../../db/conn");
 
 //Возможное добавление в дальнейшем
-router.post('/add', async (req, res) => {
+router.post('/api/add', async (req, res) => {
+
+})
+
+router.get('/', (req,res) => {
 
 })
 

@@ -82,3 +82,12 @@ h1 {
 .city{
     font-weight: 200;
 }
+
+.loading, .notFound{
+    display: flex;
+    height: 60vh;
+    font-size: 4vw;
+    font-weight: 900;
+    align-items: center;
+    justify-content: center;
+}
