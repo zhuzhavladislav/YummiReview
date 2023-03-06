@@ -71,5 +71,9 @@ module.exports = {
         hot: true,
         port: 3000,
         historyApiFallback: true,
+        proxy: {
+            context: () => true,
+            target: "http://localhost:5000"
+        }
     },
 };
