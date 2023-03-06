@@ -9,7 +9,7 @@ const Card = ({ data }) => {
   return (
     <section>
       <Link to={`/establishments/${data.id}`}>
-        <img alt={"Помещение ресторана " + data.name} src={`/api/uploads/${data.image}`} />
+        <img alt={"Помещение ресторана " + data.name} src={`/api/establishment/${data.image}`} />
         <h3 className={s.categoryItemsTitle}>{data.name}</h3>
         <div className={s.stars} data-total-value={Math.round(points)}>
           <div className={s.star} data-item-value="5"></div>

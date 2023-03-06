@@ -13,7 +13,7 @@ const EstablishmentsCard = ({ data }) => {
 
     return (
         <section className={s.item}>
-            <img alt={"Фото ресторана " + data.name} className={s.itemImage} src={`/api/uploads/${data.image}`} />
+            <img alt={"Фото ресторана " + data.name} className={s.itemImage} src={`/api/establishment/${data.image}`} />
             <div className={s.itemSecondColumn}>
                 <div className={s.itemTitle}>
                     <h2 className={s.titleText}>
@@ -37,8 +37,8 @@ const EstablishmentsCard = ({ data }) => {
                 <div className={s.itemInfo}>
                     <p><img className={s.itemIcon} src={city} /> {data.city}</p>
                     <p><img className={s.itemIcon} src={address} /> {data.street}</p>
-                    <p><img className={s.itemIcon} src={money} /> Средний чек {data.money}₽</p>
-                    <p><img className={s.itemIcon} src={phone} /> {data.number}</p>
+                    <p><img className={s.itemIcon} src={money} /> Средний чек {data.averageBill}₽</p>
+                    <p><img className={s.itemIcon} src={phone} /> {data.phone}</p>
                 </div>
                 <Link className="button" style={{ marginTop: 10, marginBottom: 20 }} to={`/establishments/${data.id}`}>
                     Подробнее

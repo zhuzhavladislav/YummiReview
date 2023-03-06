@@ -5,7 +5,7 @@ import kitchen from '../../images/icons/kitchen.svg'
 import city from '../../images/icons/city.svg'
 import address from '../../images/icons/address.svg'
 import time from '../../images/icons/time.svg'
-import money from '../../images/icons/money.svg'
+import averageBill from '../../images/icons/money.svg'
 import phone from '../../images/icons/phone.svg'
 
 const Establishment = () => {
@@ -14,11 +14,11 @@ const Establishment = () => {
     const params = useParams();
 
     useEffect(() => {
-        fetch("/api/getdata")
+        fetch("/api/establishment")
             .then(res => res.json())
             .then(
                 (result) => {
-                    getItem(result.data)
+                    getItem(result)
                 },
                 (error) => {
                     console.log(error);
@@ -46,7 +46,7 @@ const Establishment = () => {
             {item ?
                 <>
                     <div className={s.title}>
-                        <h1>{item.h1}</h1>
+                        <h1>{item.title}</h1>
                         <div className={s.mark}>
                             <p className={s.points}>{points}</p>
                             <div className={s.stars} data-total-value={Math.round(points)}>
@@ -56,17 +56,17 @@ const Establishment = () => {
                                 <div className={s.star} data-item-value="2"></div>
                                 <div className={s.star} data-item-value="1"></div>
                             </div>
-                            <p className={s.pointsText}>ОЦЕНКА ГОСТЕЙ</p>
+                            <p className={s.pointsText}>Оценка критика</p>
                         </div>
                     </div>
                     <div className={s.item}>
                         <div id="slideshow-container" className={s.slideshowContainer}>
                             <div className={s.slide + " " + s.fade}>
-                                <img alt="Изображение ресторана Едатека" className={s.itemImage} src={`/api/uploads/${item.image}`} />
+                                <img alt="Изображение ресторана Едатека" className={s.itemImage} src={`/api/establishment/${item.image}`} />
                                 <div className={s.slideText}>Главный зал</div>
                             </div>
                             <div className={s.slide + " " + s.fade}>
-                                <img alt="Изображение ресторана Едатека" className={s.itemImage} src={`/api/uploads/${item.image}`} />
+                                <img alt="Изображение ресторана Едатека" className={s.itemImage} src={`/api/establishment/${item.image}`} />
                                 <div className={s.slideText}>Главный зал 2</div>
                             </div>
                             <a id="prev-button" className={s.slidePrev}>&#10094</a>
@@ -81,8 +81,8 @@ const Establishment = () => {
                             <p><img alt="Иконка города" className="item-icon" src={city} /> {item.city}</p>
                             <p><img alt="Иконка адреса" className="item-icon" src={address} /> {item.street}</p>
                             <p><img alt="Иконка времени" className="item-icon" src={time} /> {item.time}</p>
-                            <p><img alt="Иконка кухни" className="item-icon" src={money} /> Средний чек {item.money}₽</p>
-                            <p><img alt="Иконка телефона" className="item-icon" src={phone} /> {item.number}</p>
+                            <p><img alt="Иконка кухни" className="item-icon" src={averageBill} /> Средний чек {item.averageBill}₽</p>
+                            <p><img alt="Иконка телефона" className="item-icon" src={phone} /> {item.phone}</p>
                         </div>
                     </div>
                     <div className={s.description}>
@@ -121,8 +121,7 @@ const Establishment = () => {
                             </div>
                         </div>
 
-                        <article className={s.descSecondColumn} dangerouslySetInnerHTML={createMarkup(item.text)}>
-
+                        <article className={s.descSecondColumn} dangerouslySetInnerHTML={createMarkup(item.article)}>
                         </article>
 
                     </div>

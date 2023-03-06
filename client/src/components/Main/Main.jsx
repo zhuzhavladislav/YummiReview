@@ -8,11 +8,11 @@ const Main = () => {
   const [data, setData] = useState()
 
   useEffect(() => {
-    fetch("/api/getdata")
+    fetch("/api/establishment")
       .then(res => res.json())
       .then(
         (result) => {
-          setData(result.data);
+          setData(result);
           setIsLoaded(true);
         },
         (error) => {

@@ -37,8 +37,8 @@ h1 {
 
 .categoryItems img {
     margin-bottom: 15px;
-    width: 100%;
-    height: 160px;
+    width: 15vw;
+    height: 15vw;
     max-width: 180px;
     object-fit: cover;
     border-radius: 10px;
