@@ -13,30 +13,7 @@
     "m s"
     "m t";
 }
-.stars{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: left;
-    align-self: flex-end;
-    grid-area: s;
-    margin-bottom: 0px;
-}
-.star{
-    font-size: calc(1vmin + 0.7vw);
-    width: calc(1vmin + 0.7vw);
-    height: calc(1vmin + 0.7vw);
-}
-.star::after{
-    content: "★";
-    color: #a8a8a8;
-}
-.stars[data-total-value="1"] .star:nth-child(n + 5)::after,
-.stars[data-total-value="2"] .star:nth-child(n + 4)::after,
-.stars[data-total-value="3"] .star:nth-child(n + 3)::after,
-.stars[data-total-value="4"] .star:nth-child(n + 2)::after,
-.stars[data-total-value="5"] .star:nth-child(n + 1)::after {
-    color: #F86021;
-}
+
 .points{
     align-self: center;
     grid-area: m;

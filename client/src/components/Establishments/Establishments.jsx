@@ -15,6 +15,9 @@ const Establishments = () => {
 
     const [modal, setModal] = useState(false)
 
+    const [cityList, setCityList] = useState()
+    const [cityName, setCityName] = useState("")
+
     useEffect(() => {
         fetch(`/api/establishment/?name=${name}&city=${city}&averageBill=${averageBill}&kitchen=${kitchen}`)
             .then(res => res.json())
@@ -31,9 +34,24 @@ const Establishments = () => {
             )
     }, [name, city, averageBill, kitchen])
 
+    useEffect(() => {
+        fetch(`/api/city?name=${cityName}`)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setCityList(result);
+                    setIsLoaded(true);
+                },
+                (error) => {
+                    console.log(error);
+                    setIsLoaded(true);
+                }
+            )
+    }, [cityName])
+
     useEffect(()=>{
-        console.log(city);
-    },[city])
+        console.log(cityList);
+    }, [cityList])
 
     return (
         <main>
@@ -43,24 +61,17 @@ const Establishments = () => {
                         <p style={{ position: "relative" }}>Фильтры</p>
                         <p style={{ position: "absolute", right: "1vw", cursor: "pointer"}} onClick={() => setModal(false)}>✕</p>
                     </div>
-                    <fieldset onChange={(e)=>setCity(e.target.value)}>
+                    <fieldset>
                         <legend>Город</legend>
+                        <input className={s.miniSearch} type="text" placeholder="Поиск города" value={cityName} onChange={(e) => setCityName(e.target.value)} />
                         <div className={s.radio}>
-                            <div>
-                                <input type="radio" id="cityChoice1"
-                                    name="city" value="Самара" checked={city === 'Самара'}/>
-                                <label for="cityChoice1">Самара</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="cityChoice2"
-                                    name="city" value="Москва" checked={city === 'Москва'}/>
-                                <label for="cityChoice2">Москва</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="cityChoice3"
-                                    name="city" value="Казань" checked={city === 'Казань'}/>
-                                <label for="cityChoice3">Казань</label>
-                            </div>
+                            {cityList ? cityList.map((item)=>
+                                <div key={item.id}>
+                                    <input type="radio" id={item.id}
+                                        name="city" value={item.name} checked={city === item.name} onChange={(e) => setCity(e.target.value)}/>
+                                    <label for={item.id}>{item.name}</label>
+                                </div>
+                            ) : null}
                         </div>
                     </fieldset>
                     <fieldset onChange={(e)=>setKitchen(e.target.value)} >

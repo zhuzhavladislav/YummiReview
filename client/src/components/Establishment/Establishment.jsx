@@ -7,6 +7,7 @@ import address from '../../images/icons/address.svg'
 import time from '../../images/icons/time.svg'
 import averageBill from '../../images/icons/money.svg'
 import phone from '../../images/icons/phone.svg'
+import Stars from '../Stars/Stars'
 
 const Establishment = () => {
     const [item, setItem] = useState(null)
@@ -49,13 +50,7 @@ const Establishment = () => {
                         <h1>{item.title}</h1>
                         <div className={s.mark}>
                             <p className={s.points}>{points}</p>
-                            <div className={s.stars} data-total-value={Math.round(points)}>
-                                <div className={s.star} data-item-value="5"></div>
-                                <div className={s.star} data-item-value="4"></div>
-                                <div className={s.star} data-item-value="3"></div>
-                                <div className={s.star} data-item-value="2"></div>
-                                <div className={s.star} data-item-value="1"></div>
-                            </div>
+                            <Stars points={points}/>
                             <p className={s.pointsText}>Оценка критика</p>
                         </div>
                     </div>
@@ -88,42 +83,16 @@ const Establishment = () => {
                     <div className={s.description}>
                         <div className={s.descFirstColumn}>
                             <p>Еда</p>
-                            <div className={s.stars} data-total-value={Math.round(item.scoreFood)}>
-                                <div className={s.star} data-item-value="5"></div>
-                                <div className={s.star} data-item-value="4"></div>
-                                <div className={s.star} data-item-value="3"></div>
-                                <div className={s.star} data-item-value="2"></div>
-                                <div className={s.star} data-item-value="1"></div>
-                            </div>
+                            <Stars points={item.scoreFood} />
                             <p>Сервис</p>
-                            <div className={s.stars} data-total-value={Math.round(item.scoreService)}>
-                                <div className={s.star} data-item-value="5"></div>
-                                <div className={s.star} data-item-value="4"></div>
-                                <div className={s.star} data-item-value="3"></div>
-                                <div className={s.star} data-item-value="2"></div>
-                                <div className={s.star} data-item-value="1"></div>
-                            </div>
+                            <Stars points={item.scoreService} />
                             <p>Атмосфера</p>
-                            <div className={s.stars} data-total-value={Math.round(item.scoreAtmosphere)}>
-                                <div className={s.star} data-item-value="5"></div>
-                                <div className={s.star} data-item-value="4"></div>
-                                <div className={s.star} data-item-value="3"></div>
-                                <div className={s.star} data-item-value="2"></div>
-                                <div className={s.star} data-item-value="1"></div>
-                            </div>
+                            <Stars points={item.scoreAtmosphere} />
                             <p>Интерьер</p>
-                            <div className={s.stars} data-total-value={Math.round(item.scoreInterier)}>
-                                <div className={s.star} data-item-value="5"></div>
-                                <div className={s.star} data-item-value="4"></div>
-                                <div className={s.star} data-item-value="3"></div>
-                                <div className={s.star} data-item-value="2"></div>
-                                <div className={s.star} data-item-value="1"></div>
-                            </div>
+                            <Stars points={item.scoreInterier} />
                         </div>
-
                         <article className={s.descSecondColumn} dangerouslySetInnerHTML={createMarkup(item.article)}>
                         </article>
-
                     </div>
                     <div id="to-top"></div>
                 </> : item === undefined ? <p className={s.notFound}>Заведение не найдено :(</p> : <p className={s.loading}>Загрузка...</p>}

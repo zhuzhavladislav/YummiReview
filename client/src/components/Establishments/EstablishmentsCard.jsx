@@ -5,6 +5,7 @@ import city from "../../images/icons/city.svg"
 import address from "../../images/icons/address.svg"
 import money from "../../images/icons/money.svg"
 import phone from "../../images/icons/phone.svg"
+import Stars from '../Stars/Stars'
 
 
 const EstablishmentsCard = ({ data }) => {
@@ -21,13 +22,7 @@ const EstablishmentsCard = ({ data }) => {
                     </h2>
                     <div className={s.mark}>
                         <p className={s.points}>{points}</p>
-                        <div className={s.stars} data-total-value={Math.round(points)}>
-                            <div className={s.star} data-item-value="5"></div>
-                            <div className={s.star} data-item-value="4"></div>
-                            <div className={s.star} data-item-value="3"></div>
-                            <div className={s.star} data-item-value="2"></div>
-                            <div className={s.star} data-item-value="1"></div>
-                        </div>
+                        <Stars points={points} />
                         <p className={s.pointsText}>Оценка критика</p>
                     </div>
                 </div>
