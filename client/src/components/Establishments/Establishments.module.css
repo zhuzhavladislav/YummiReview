@@ -2,6 +2,92 @@ h1 {
     margin-top: 20px;
 }
 
+.modal{
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: #1d21206a;
+    z-index: 1;
+
+}
+.modal.hidden{
+    display: none;
+    opacity: 0;
+}
+.filtersList{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 24vw;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    background-color: #ffffff;
+    box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 2;
+}
+.filtersTitle{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+    background-color:#f86021;
+    color:#ffffff;
+}
+.filtersTitle p{
+    font-size: 16px;
+    font-weight: 600;
+}
+.filtersList fieldset{
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    border-color: #f86021;
+    border-width: 1px;
+    border-style:solid;
+}
+.filtersList fieldset legend {
+  color: white;
+  background-color: #f86021;
+  padding: 5px 10px;
+  border-radius: 50px;
+  margin-left: 5px;
+  border: 0;
+  font-size: 14px;
+}
+.radio{
+    display: flex;
+    flex-direction: column;
+    max-height: 200px;
+    padding: 10px;
+}
+.radio input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  outline: none;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+}
+
+.radio input:checked {
+  border: 6px solid #f86021;
+}
+
 .search {
     display: grid;
     grid-template-columns: auto min-content;
@@ -27,6 +113,7 @@ h1 {
 }
 
 .filters {
+    cursor: pointer;
     display: flex;
     align-items: center;
     font-size: calc(1.2vmin + 0.6vw);
@@ -34,10 +121,9 @@ h1 {
     transition: 0.2s;
 }
 .filters:hover {
-    cursor: pointer;
     color: #f86021;
 }
-.filters:active {
+.active {
     color: #f86021;
 }
 .filters img {

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../../images/logo.png'
 import s from './Header.module.css'
 
@@ -7,9 +8,9 @@ const Header = () => {
         <header>
             <img alt="Логотип YummiReview" src={logo} />
             <nav className={s.menu}>
-                <a href="/">Главная</a>
-                <a href="/">О рейтинге</a>
-                <a href="/add">Добавить заведение</a>
+                <Link to="/">Главная</Link>
+                <Link to="/">О рейтинге</Link>
+                <Link to="/add">Добавить заведение</Link>
             </nav>
         </header>
     )

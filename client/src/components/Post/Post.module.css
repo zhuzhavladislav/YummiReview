@@ -91,6 +91,7 @@ button{
 button:hover{
     cursor: pointer;
     border-color: #f86021;
-    color: #f86021;
+    background-color: #f86021;
+    color: white;
 }
 
