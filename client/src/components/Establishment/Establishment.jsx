@@ -15,21 +15,17 @@ const Establishment = () => {
     const params = useParams();
 
     useEffect(() => {
-        fetch("/api/establishment")
+        fetch(`/api/establishment/${params.id}`)
             .then(res => res.json())
             .then(
                 (result) => {
-                    getItem(result)
+                    setItem(result[0])
                 },
                 (error) => {
                     console.log(error);
                 }
             )
     }, [])
-
-    const getItem = (data) => {
-        setItem(data.find(item => item.id == params.id))
-    }
 
     useEffect(() => {
         if (item) {
@@ -58,9 +54,9 @@ const Establishment = () => {
                         <div id="slideshow-container" className={s.slideshowContainer}>
                             <div className={s.slide + " " + s.fade}>
                                 <img alt="Изображение ресторана Едатека" className={s.itemImage} src={`/api/establishment/${item.image}`} />
-                                <div className={s.slideText}>Главный зал</div>
+                                {/* <div className={s.slideText}>Главный зал</div> */}
                             </div>
-                            <div className={s.slide + " " + s.fade}>
+                            {/* <div className={s.slide + " " + s.fade}>
                                 <img alt="Изображение ресторана Едатека" className={s.itemImage} src={`/api/establishment/${item.image}`} />
                                 <div className={s.slideText}>Главный зал 2</div>
                             </div>
@@ -69,14 +65,14 @@ const Establishment = () => {
                             <div style={{ textAlign: "center" }}>
                                 <span className={s.dot}></span>
                                 <span className={s.dot}></span>
-                            </div>
+                            </div> */}
                         </div>
                         <div className={s.itemSecondColumn}>
                             <p><img alt="Иконка кухни" className="item-icon" src={kitchen} /> {item.kitchen}</p>
                             <p><img alt="Иконка города" className="item-icon" src={city} /> {item.city}</p>
                             <p><img alt="Иконка адреса" className="item-icon" src={address} /> {item.street}</p>
                             <p><img alt="Иконка времени" className="item-icon" src={time} /> {item.time}</p>
-                            <p><img alt="Иконка кухни" className="item-icon" src={averageBill} /> Средний чек {item.averageBill}₽</p>
+                            <p><img alt="Иконка денег" className="item-icon" src={averageBill} /> Средний чек {item.averageBill}₽</p>
                             <p><img alt="Иконка телефона" className="item-icon" src={phone} /> {item.phone}</p>
                         </div>
                     </div>

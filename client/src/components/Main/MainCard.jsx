@@ -6,7 +6,7 @@ import Stars from '../Stars/Stars'
 const Card = ({ data }) => {
   let points = ((data.scoreFood + data.scoreService + data.scoreAtmosphere + data.scoreInterier) / 4).toFixed(1)
   points > 5 ? points = 5 : points < 0 ? points = 0 : points
-  console.log(data);
+
   return (
     <section>
       <Link to={`/establishments/${data.id}`}>

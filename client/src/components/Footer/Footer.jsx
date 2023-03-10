@@ -1,5 +1,6 @@
 import React from 'react'
 import s from './Footer.module.css'
+import { Link } from 'react-router-dom'
 import logo from '../../images/logo.png'
 
 const Footer = () => {
@@ -14,18 +15,15 @@ const Footer = () => {
             </div>
             <hr className={s.footerLine} />
             <div className={s.footerItems}>
-                <a href="">
+                <Link to="/">
                     О проекте
-                </a>
-                <a href="">
+                </Link>
+                <Link to="/">
                     Вакансии
-                </a>
-                <a href="">
-                    Мобильная версия
-                </a>
-                <a href="">
+                </Link>
+                <Link to="/">
                     Правила
-                </a>
+                </Link>
             </div>
             <hr className={s.footerLine} />
             <div className={s.copyright}>

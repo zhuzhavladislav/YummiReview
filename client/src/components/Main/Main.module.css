@@ -19,7 +19,7 @@ h1 {
 
 .categoryItems {
     display: flex;
-    gap: 20px;
+    gap: 1vw;
 }
 
 .categoryItems a {

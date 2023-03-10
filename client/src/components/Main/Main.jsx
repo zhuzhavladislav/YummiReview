@@ -4,7 +4,6 @@ import s from './Main.module.css'
 import MainCard from './MainCard'
 
 const Main = () => {
-  const [isLoaded, setIsLoaded] = useState(false)
   const [data, setData] = useState()
 
   useEffect(() => {
@@ -12,23 +11,17 @@ const Main = () => {
       .then(res => res.json())
       .then(
         (result) => {
-          setData(result);
-          setIsLoaded(true);
+          setData(result.establishments);
         },
         (error) => {
           console.log(error);
-          setIsLoaded(true);
         }
       )
   }, [])
 
-  useEffect(() => {
-    console.log(data);
-  }, [data])
-
   return (
     <main>
-      {isLoaded ?
+      {data ?
         <>
           <h1>Обзоры заведений общественного питания</h1>
           <div className={s.category}>
