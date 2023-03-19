@@ -1,9 +1,9 @@
-﻿using api.Models;
+﻿using YummiReview.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace api.Data
+namespace YummiReview.Data
 {
     public class ApplicationDbContext : DbContext
     {

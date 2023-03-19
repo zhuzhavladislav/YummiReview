@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace api.Models
+namespace YummiReview.Models
 {
-    [Table("city")]
-    public class Cities
+    [Table("kitchen")]
+    public class Kitchens
     {
         [Key]
         [Column("id")]

@@ -1,4 +1,4 @@
-using api.Data;
+using YummiReview.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Security.Principal;

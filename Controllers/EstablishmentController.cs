@@ -1,5 +1,5 @@
-﻿using api.Data;
-using api.Models;
+﻿using YummiReview.Data;
+using YummiReview.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Http;
@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace api.Controllers
+namespace YummiReview.Controllers
 {
     [Route("api/establishment")]
     [ApiController]
@@ -40,69 +40,69 @@ namespace api.Controllers
                     c => c.Id,
                     (o, c) => new
                     {
-                        Id = o.Id,
-                        Name = o.Name,
-                        Type = o.Type,
-                        Description = o.Description,
-                        Kitchen = o.Kitchen,
+                        o.Id,
+                        o.Name,
+                        o.Type,
+                        o.Description,
+                        o.Kitchen,
                         City = c.Name,
-                        Street = o.Street,
-                        Time = o.Time,
-                        AverageBill = o.AverageBill,
-                        Phone = o.Phone,
-                        Title = o.Title,
-                        Article = o.Article,
-                        Image = o.Image,
-                        ScoreFood = o.ScoreFood,
-                        ScoreService = o.ScoreService,
-                        ScoreAtmosphere = o.ScoreAtmosphere,
-                        ScoreInterier = o.ScoreInterier
+                        o.Street,
+                        o.Time,
+                        o.AverageBill,
+                        o.Phone,
+                        o.Title,
+                        o.Article,
+                        o.Image,
+                        o.ScoreFood,
+                        o.ScoreService,
+                        o.ScoreAtmosphere,
+                        o.ScoreInterier
                     }
                 ).Join(_dbContext.Kitchens,
                     o => o.Kitchen,
                     c => c.Id,
                     (o, c) => new
                     {
-                        Id = o.Id,
-                        Name = o.Name,
-                        Type = o.Type,
-                        Description = o.Description,
+                        o.Id,
+                        o.Name,
+                        o.Type,
+                        o.Description,
                         Kitchen = c.Name,
-                        City = o.City,
-                        Street = o.Street,
-                        Time = o.Time,
-                        AverageBill = o.AverageBill,
-                        Phone = o.Phone,
-                        Title = o.Title,
-                        Article = o.Article,
-                        Image = o.Image,
-                        ScoreFood = o.ScoreFood,
-                        ScoreService = o.ScoreService,
-                        ScoreAtmosphere = o.ScoreAtmosphere,
-                        ScoreInterier = o.ScoreInterier
+                        o.City,
+                        o.Street,
+                        o.Time,
+                        o.AverageBill,
+                        o.Phone,
+                        o.Title,
+                        o.Article,
+                        o.Image,
+                        o.ScoreFood,
+                        o.ScoreService,
+                        o.ScoreAtmosphere,
+                        o.ScoreInterier
                     }
                     ).Join(_dbContext.Types,
                     o => o.Type,
                     c => c.Id,
                     (o, c) => new
                     {
-                        Id = o.Id,
-                        Name = o.Name,
+                        o.Id,
+                        o.Name,
                         Type = c.Name,
-                        Description = o.Description,
-                        Kitchen = o.Kitchen,
-                        City = o.City,
-                        Street = o.Street,
-                        Time = o.Time,
-                        AverageBill = o.AverageBill,
-                        Phone = o.Phone,
-                        Title = o.Title,
-                        Article = o.Article,
-                        Image = o.Image,
-                        ScoreFood = o.ScoreFood,
-                        ScoreService = o.ScoreService,
-                        ScoreAtmosphere = o.ScoreAtmosphere,
-                        ScoreInterier = o.ScoreInterier
+                        o.Description,
+                        o.Kitchen,
+                        o.City,
+                        o.Street,
+                        o.Time,
+                        o.AverageBill,
+                        o.Phone,
+                        o.Title,
+                        o.Article,
+                        o.Image,
+                        o.ScoreFood,
+                        o.ScoreService,
+                        o.ScoreAtmosphere,
+                        o.ScoreInterier
                     }
                     ).AsQueryable();
 

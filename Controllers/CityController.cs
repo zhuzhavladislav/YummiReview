@@ -1,10 +1,10 @@
-﻿using api.Data;
-using api.Models;
+﻿using YummiReview.Data;
+using YummiReview.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Org.BouncyCastle.Utilities;
 
-namespace api.Controllers
+namespace YummiReview.Controllers
 {
     [Route("api/city")]
     [ApiController]
