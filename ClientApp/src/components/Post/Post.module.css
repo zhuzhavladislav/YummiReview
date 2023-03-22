@@ -4,18 +4,36 @@
     font-weight: 700;  
 }
 .main{
-    display: grid;
     padding-top: 70px;
     padding-bottom: 40px;
     justify-content: center;
 }
 .form{
-    display: grid;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+.form fieldset{
+    display: flex;
+    flex-direction: column;
+    border-color: #f86021;
+    border-width: 1px;
+    border-style:solid;
+    padding: 10px;
+}
+.form fieldset legend {
+  color: white;
+  background-color: #f86021;
+  padding: 5px 10px;
+  border-radius: 50px;
+  margin-left: 5px;
+  border: 0;
+  font-size: calc(1.1vmin + 0.5vw);
 }
 .formLabel{
-    display: none;
-    margin-left: 10px;
+    display: flex;
     font-size: 12px;
     font-style: italic;
 }
@@ -30,34 +48,28 @@
     width: auto;
     min-width: 100px;
     border-width: 0 0 1px;
+    border-style:solid;
     outline: none;
     background-size: 18px;
     font-family: 'Inter';
-    font-size: 16px;
-    padding-left: 10px;
+    font-size: calc(1.1vmin + 0.5vw);
+    padding-top: 5px;
     padding-bottom: 5px;
-    margin-top: 25px;
-    margin-bottom: 5px;
     color: #1d2120;
-    transition: 0.2s;
 }
 .input.error {
     box-shadow: 0 5px 6px -5px red;
-    border-width: 0 0 1px;
+    border-width: 1px;
     border-color: red;
-    transition: 0.2s;
 }
 .input.correct {
     box-shadow: 0 5px 6px -6px green;
-    border-width: 0 0 1px;
+    border-width: 1px;
     border-color: green;
-    transition: 0.2s;
 }
 .input:focus {
     box-shadow: none;
-    border-width: 0 0 1px;
     border-color: #f86021;
-    transition: 0.2s;
 }
 .checkbox__label{
     font-size: 12px;
@@ -71,6 +83,52 @@
     display: inline-flex;
     align-items: center;
 }
+
+.miniSearch{
+    width: 100%;
+    border-width: 0 0 1px;
+    outline: none;
+    font-size: calc(1.1vmin + 0.5vw);
+    padding-bottom: 5px;
+    color: #1d2120;
+    transition: 0.2s;
+}:focus{
+    border-color: #f86021;
+}
+
+.radio{
+    display: flex;
+    flex-direction: column;
+    max-height: 130px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.radio input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+    
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  outline: none;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+}
+
+.radio input:checked {
+  border: 6px solid #f86021;
+}
+.radio label{
+    font-size: calc(1.1vmin + 0.5vw);
+}
+
+
 
 button{
     width: auto;

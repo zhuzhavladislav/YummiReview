@@ -27,9 +27,6 @@ const EstablishmentsCard = ({ data }) => {
                         <p className={s.pointsText}>Оценка критика</p>
                     </div>
                 </div>
-                <p>
-                    {data.description}
-                </p>
                 <div className={s.itemInfo}>
                     <p><img alt="Иконка кухни" className="item-icon" src={kitchen} /> {data.kitchen}</p>
                     <p><img alt="Иконка города" className={s.itemIcon} src={city} /> {data.city}</p>

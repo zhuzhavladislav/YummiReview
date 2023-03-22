@@ -26,6 +26,18 @@ const Establishments = () => {
     const [maxPages, setMaxPages] = useState(1);
 
     useEffect(() => {
+        fetchEstablishments()
+    }, [name, city, averageBill, kitchen, pageNumber, pageSize])
+
+    useEffect(() => {
+        fetchCities()
+    }, [cityName])
+
+    useEffect(() => {
+        fetchKitchens()
+    }, [kitchenName])
+
+    const fetchEstablishments = () => {
         fetch(`/api/establishment/?name=${name}&pageSize=${pageSize}&pageNumber=${pageNumber}&city=${city}&averageBill=${averageBill}&kitchen=${kitchen}`)
             .then(res => res.json())
             .then(
@@ -37,9 +49,9 @@ const Establishments = () => {
                     console.log(error);
                 }
             )
-    }, [name, city, averageBill, kitchen, pageNumber, pageSize])
+    }
 
-    useEffect(() => {
+    const fetchCities = () => {
         fetch(`/api/city?name=${cityName}`)
             .then(res => res.json())
             .then(
@@ -50,9 +62,9 @@ const Establishments = () => {
                     console.log(error);
                 }
             )
-    }, [cityName])
+    }
 
-    useEffect(() => {
+    const fetchKitchens = () => {
         fetch(`/api/kitchen?name=${kitchenName}`)
             .then(res => res.json())
             .then(
@@ -63,7 +75,7 @@ const Establishments = () => {
                     console.log(error);
                 }
             )
-    }, [kitchenName])
+    }
 
     const handlePageChange = (pageNumber) => {
         setPageNumber(pageNumber);
@@ -75,16 +87,16 @@ const Establishments = () => {
                 <div className={s.filtersList} >
                     <div className={s.filtersTitle}>
                         <p style={{ position: "relative" }}>Фильтры</p>
-                        <p style={{ position: "absolute", right: "1vw", cursor: "pointer"}} onClick={() => setModal(false)}>✕</p>
+                        <p style={{ position: "absolute", right: "1vw", cursor: "pointer" }} onClick={() => setModal(false)}>✕</p>
                     </div>
                     <fieldset>
                         <legend>Город</legend>
                         <input className={s.miniSearch} type="text" placeholder="Поиск города" value={cityName} onChange={(e) => setCityName(e.target.value)} />
                         <div className={s.radio}>
-                            {cityList ? cityList.map((item)=>
+                            {cityList ? cityList.map((item) =>
                                 <div key={"city_" + item.id}>
                                     <input type="radio" id={"city_" + item.id}
-                                        name="city" value={item.name} checked={city === item.name} onChange={(e) => { setCity(e.target.value); setPageNumber(1) }}/>
+                                        name="city" value={item.name} checked={city === item.name} onChange={(e) => { setCity(e.target.value); setPageNumber(1) }} />
                                     <label htmlFor={"city_" + item.id}>{item.name}</label>
                                 </div>
                             ) : null}
@@ -108,37 +120,37 @@ const Establishments = () => {
                         <div className={s.radio}>
                             <div>
                                 <input type="radio" id="averageBillChoice1"
-                                    name="averageBill" value="0-1000" checked={averageBill === '0-1000'} onChange={(e) => setAverageBill(e.target.value)}/>
+                                    name="averageBill" value="0-1000" checked={averageBill === '0-1000'} onChange={(e) => setAverageBill(e.target.value)} />
                                 <label htmlFor="averageBillChoice1">До 1000р.</label>
                             </div>
                             <div>
                                 <input type="radio" id="averageBillChoice2"
-                                    name="averageBill" value="1000-2000" checked={averageBill === '1000-2000'} onChange={(e) => setAverageBill(e.target.value)}/>
+                                    name="averageBill" value="1000-2000" checked={averageBill === '1000-2000'} onChange={(e) => setAverageBill(e.target.value)} />
                                 <label htmlFor="averageBillChoice2">1000-2000р.</label>
                             </div>
                             <div>
                                 <input type="radio" id="averageBillChoice3"
-                                    name="averageBill" value="2000-3000" checked={averageBill === '2000-3000'} onChange={(e) => setAverageBill(e.target.value)}/>
+                                    name="averageBill" value="2000-3000" checked={averageBill === '2000-3000'} onChange={(e) => setAverageBill(e.target.value)} />
                                 <label htmlFor="averageBillChoice3">2000-3000р.</label>
                             </div>
                             <div>
                                 <input type="radio" id="averageBillChoice4"
-                                    name="averageBill" value="3000-4000" checked={averageBill === '3000-4000'} onChange={(e) => setAverageBill(e.target.value)}/>
+                                    name="averageBill" value="3000-4000" checked={averageBill === '3000-4000'} onChange={(e) => setAverageBill(e.target.value)} />
                                 <label htmlFor="averageBillChoice4">3000-4000р.</label>
                             </div>
                             <div>
                                 <input type="radio" id="averageBillChoice5"
-                                    name="averageBill" value="4000-5000" checked={averageBill === '4000-5000'} onChange={(e) => setAverageBill(e.target.value)}/>
+                                    name="averageBill" value="4000-5000" checked={averageBill === '4000-5000'} onChange={(e) => setAverageBill(e.target.value)} />
                                 <label htmlFor="averageBillChoice5">4000-5000р.</label>
                             </div>
                             <div>
                                 <input type="radio" id="averageBillChoice6"
-                                    name="averageBill" value="5000-999000" checked={averageBill === '5000-999000'} onChange={(e) => setAverageBill(e.target.value)}/>
+                                    name="averageBill" value="5000-999000" checked={averageBill === '5000-999000'} onChange={(e) => setAverageBill(e.target.value)} />
                                 <label htmlFor="averageBillChoice6">Больше 5000р.</label>
                             </div>
                         </div>
                     </fieldset>
-                    <button style={{marginLeft: 15, marginRight: 15, marginBottom:20}} onClick={()=>{
+                    <button style={{ marginLeft: 15, marginRight: 15, marginBottom: 20 }} onClick={() => {
                         setName("")
                         setKitchen("")
                         setAverageBill("")
@@ -149,7 +161,7 @@ const Establishments = () => {
             <h1>Рейтинг лучших ресторанов России</h1>
             <div className={s.search}>
                 <input type="text" placeholder="Поиск" value={name} onChange={(e) => { setName(e.target.value); setPageNumber(1) }} />
-                <div className={s.filters} onClick={()=>setModal(true)}>
+                <div className={s.filters} onClick={() => setModal(true)}>
                     <img alt="filter" src={filterLeft} />Фильтры<img alt="Развернуть фильтры" style={{ width: "20px" }} src={arrowDown} />
                 </div>
             </div>

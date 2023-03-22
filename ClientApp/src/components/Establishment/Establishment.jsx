@@ -43,7 +43,7 @@ const Establishment = () => {
             {item ?
                 <>
                     <div className={s.title}>
-                        <h1>{item.title}</h1>
+                        <h1>«{item.name}» – {item.city}, Обзор</h1>
                         <div className={s.mark}>
                             <p className={s.points}>{points}</p>
                             <Stars points={points}/>
@@ -54,18 +54,7 @@ const Establishment = () => {
                         <div id="slideshow-container" className={s.slideshowContainer}>
                             <div className={s.slide + " " + s.fade}>
                                 <img alt="Изображение ресторана Едатека" className={s.itemImage} src={`/api/establishment/${item.image}`} />
-                                {/* <div className={s.slideText}>Главный зал</div> */}
                             </div>
-                            {/* <div className={s.slide + " " + s.fade}>
-                                <img alt="Изображение ресторана Едатека" className={s.itemImage} src={`/api/establishment/${item.image}`} />
-                                <div className={s.slideText}>Главный зал 2</div>
-                            </div>
-                            <a id="prev-button" className={s.slidePrev}>&#10094</a>
-                            <a id="next-button" className={s.slideNext}>&#10095</a>
-                            <div style={{ textAlign: "center" }}>
-                                <span className={s.dot}></span>
-                                <span className={s.dot}></span>
-                            </div> */}
                         </div>
                         <div className={s.itemSecondColumn}>
                             <p><img alt="Иконка кухни" className="item-icon" src={kitchen} /> {item.kitchen}</p>
