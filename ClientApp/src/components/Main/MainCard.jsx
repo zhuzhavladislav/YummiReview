@@ -10,7 +10,7 @@ const Card = ({ data }) => {
   return (
     <section>
       <Link to={`/establishments/${data.id}`}>
-        <img alt={"Помещение ресторана " + data.name} src={`/api/establishment/${data.image}`} />
+        <img alt={"Помещение ресторана " + data.name} src={`/api/establishment/images/${data.image}`} />
         <h3 className={s.categoryItemsTitle}>{data.name}</h3>
         <Stars points={points} />
         <p style={{marginTop: 10}} className={s.kitchen}>{data.kitchen}</p>

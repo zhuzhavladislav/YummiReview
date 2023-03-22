@@ -56,32 +56,25 @@
     padding-top: 5px;
     padding-bottom: 5px;
     color: #1d2120;
+    transition: all 0.2s;
 }
-.input.error {
-    box-shadow: 0 5px 6px -5px red;
-    border-width: 1px;
+.input:invalid {
+    border-width: 0 0 1px;
+    background: url("../../images/icons/error.svg") no-repeat 100% 50%;
+    background-size: calc(1.5vmin + 0.5vw);
     border-color: red;
 }
-.input.correct {
-    box-shadow: 0 5px 6px -6px green;
-    border-width: 1px;
+.input:valid {
+    border-width: 0 0 1px;
+    background: url("../../images/icons/valid.svg") no-repeat 100% 50%;
+    background-size: calc(1.5vmin + 0.5vw);
     border-color: green;
 }
-.input:focus {
-    box-shadow: none;
-    border-color: #f86021;
+.input:focus:invalid {
+    border-color: red;
 }
-.checkbox__label{
-    font-size: 12px;
-    display: inline-flex;
-    align-items: center;
-    transition: 0.2s;
-}
-.checkbox__label.error{
-    color: red;
-    font-size: 12px;
-    display: inline-flex;
-    align-items: center;
+.input:focus:valid {
+    border-color: green;
 }
 
 .miniSearch{

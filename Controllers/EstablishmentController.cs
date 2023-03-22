@@ -248,7 +248,7 @@ namespace YummiReview.Controllers
             return Ok();
         }
 
-        [HttpGet("{imageName}")]
+        [HttpGet("images/{imageName}")]
         public IActionResult GetImage(string imageName)
         {
             // Получаем бинарные данные из сохраненного файла
@@ -261,30 +261,34 @@ namespace YummiReview.Controllers
             return File(bytes, "image/jpeg");
         }
 
-        [HttpPost("{imageName}")]
+        [HttpPost("addImage")]
         public async Task<IActionResult> UploadImage(IFormFile image)
         {
             // Проверяем, что файл был загружен
             if (image == null || image.Length == 0)
-                return BadRequest("Image file is not selected");
+                return BadRequest("Изображение не было выбрано или его не удалось загрузить :(");
 
-            // Проверяем тип файла
-            if (image.ContentType != "image/jpeg")
-                return BadRequest("Only JPEG file is allowed");
 
-            // Загружаем файл на сервер в папку Images
-            var imageName = Guid.NewGuid().ToString("N").Substring(0, 8) + ".jpeg";
+            string? imageName;
+            // Загружаем файл на сервер в папку Images и Проверяем тип файла
+            if (image.ContentType == "image/jpeg")
+            {
+                imageName = Guid.NewGuid().ToString("N").Substring(0, 8) + ".jpeg";
+            } else if (image.ContentType == "image/png")
+            {
+                imageName = Guid.NewGuid().ToString("N").Substring(0, 8) + ".png";
+            } else
+            {
+                return BadRequest("Для загрузки доступны только изображения в формате PNG, JPG");
+            }
+            
             var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "Images", imageName);
             using (var stream = new FileStream(imagePath, FileMode.Create))
             {
                 await image.CopyToAsync(stream);
             }
 
-            // Возвращаем URL, по которому можно получить загруженное изображение
-            //var imageUrl = Url.Action("GetImage", new { imageName = imageName }, Request.Scheme, Request.Host.Value);
-
-            //return Ok(new { imageUrl });
-            return Ok(imagePath);
+            return Ok(imageName);
         }
     }
 }

@@ -53,7 +53,7 @@ const Establishment = () => {
                     <div className={s.item}>
                         <div id="slideshow-container" className={s.slideshowContainer}>
                             <div className={s.slide + " " + s.fade}>
-                                <img alt="Изображение ресторана Едатека" className={s.itemImage} src={`/api/establishment/${item.image}`} />
+                                <img alt="Изображение ресторана Едатека" className={s.itemImage} src={`/api/establishment/images/${item.image}`} />
                             </div>
                         </div>
                         <div className={s.itemSecondColumn}>

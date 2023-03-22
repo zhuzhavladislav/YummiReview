@@ -15,7 +15,7 @@ const EstablishmentsCard = ({ data }) => {
 
     return (
         <section className={s.item}>
-            <img alt={"Фото ресторана " + data.name} className={s.itemImage} src={`/api/establishment/${data.image}`} />
+            <img alt={"Фото ресторана " + data.name} className={s.itemImage} src={`/api/establishment/images/${data.image}`} />
             <div className={s.itemSecondColumn}>
                 <div className={s.itemTitle}>
                     <h2 className={s.titleText}>
