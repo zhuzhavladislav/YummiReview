@@ -102,11 +102,41 @@ h1 {
   position: relative;
   top: 4px;
 }
-
 .radio input:checked {
   border: 6px solid #f86021;
 }
 .radio label{
+    font-size: calc(1.1vmin + 0.5vw);
+}
+
+.checkbox{
+    display: flex;
+    flex-direction: column;
+    max-height: 130px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.checkbox input {
+    -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 10%;
+  width: 16px;
+  height: 16px;
+    
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  outline: none;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+}
+.checkbox input:checked {
+    border: 6px solid #f86021;
+}
+.checkbox label{
     font-size: calc(1.1vmin + 0.5vw);
 }
 

@@ -10,7 +10,7 @@ const Establishments = () => {
 
     const [name, setName] = useState("")
     const [city, setCity] = useState("")
-    const [averageBill, setAverageBill] = useState("")
+    const [averageBill, setAverageBill] = useState([])
     const [kitchen, setKitchen] = useState("")
 
     const [modal, setModal] = useState(false)
@@ -77,6 +77,17 @@ const Establishments = () => {
             )
     }
 
+    const handleCheckboxChecked = (e) => {
+        if (e.target.checked) {
+            setAverageBill([...averageBill, e.target.value]);
+        } else {
+            setAverageBill(
+                averageBill.filter((value) => value !== e.target.value)
+            );
+        }
+    }
+    
+
     const handlePageChange = (pageNumber) => {
         setPageNumber(pageNumber);
     }
@@ -117,35 +128,35 @@ const Establishments = () => {
                     </fieldset>
                     <fieldset>
                         <legend>Средний чек</legend>
-                        <div className={s.radio}>
+                        <div className={s.checkbox}>
                             <div>
-                                <input type="radio" id="averageBillChoice1"
-                                    name="averageBill" value="0-1000" checked={averageBill === '0-1000'} onChange={(e) => setAverageBill(e.target.value)} />
+                                <input type="checkbox" id="averageBillChoice1"
+                                    name="averageBill" value="0-1000" checked={averageBill.includes("0-1000")} onChange={(e) => {handleCheckboxChecked(e); setPageNumber(1)}} />
                                 <label htmlFor="averageBillChoice1">До 1000р.</label>
                             </div>
                             <div>
-                                <input type="radio" id="averageBillChoice2"
-                                    name="averageBill" value="1000-2000" checked={averageBill === '1000-2000'} onChange={(e) => setAverageBill(e.target.value)} />
+                                <input type="checkbox" id="averageBillChoice2"
+                                    name="averageBill" value="1000-2000" checked={averageBill.includes("1000-2000")} onChange={(e) => {handleCheckboxChecked(e); setPageNumber(1)}} />
                                 <label htmlFor="averageBillChoice2">1000-2000р.</label>
                             </div>
                             <div>
-                                <input type="radio" id="averageBillChoice3"
-                                    name="averageBill" value="2000-3000" checked={averageBill === '2000-3000'} onChange={(e) => setAverageBill(e.target.value)} />
+                                <input type="checkbox" id="averageBillChoice3"
+                                    name="averageBill" value="2000-3000" checked={averageBill.includes("2000-3000")} onChange={(e) => {handleCheckboxChecked(e); setPageNumber(1)}} />
                                 <label htmlFor="averageBillChoice3">2000-3000р.</label>
                             </div>
                             <div>
-                                <input type="radio" id="averageBillChoice4"
-                                    name="averageBill" value="3000-4000" checked={averageBill === '3000-4000'} onChange={(e) => setAverageBill(e.target.value)} />
+                                <input type="checkbox" id="averageBillChoice4"
+                                    name="averageBill" value="3000-4000" checked={averageBill.includes("3000-4000")} onChange={(e) => {handleCheckboxChecked(e); setPageNumber(1)}} />
                                 <label htmlFor="averageBillChoice4">3000-4000р.</label>
                             </div>
                             <div>
-                                <input type="radio" id="averageBillChoice5"
-                                    name="averageBill" value="4000-5000" checked={averageBill === '4000-5000'} onChange={(e) => setAverageBill(e.target.value)} />
+                                <input type="checkbox" id="averageBillChoice5"
+                                    name="averageBill" value="4000-5000" checked={averageBill.includes("4000-5000")} onChange={(e) => {handleCheckboxChecked(e); setPageNumber(1)}} />
                                 <label htmlFor="averageBillChoice5">4000-5000р.</label>
                             </div>
                             <div>
-                                <input type="radio" id="averageBillChoice6"
-                                    name="averageBill" value="5000-999000" checked={averageBill === '5000-999000'} onChange={(e) => setAverageBill(e.target.value)} />
+                                <input type="checkbox" id="averageBillChoice6"
+                                    name="averageBill" value="5000-999000" checked={averageBill.includes("5000-999000")} onChange={(e) => {handleCheckboxChecked(e); setPageNumber(1)}} />
                                 <label htmlFor="averageBillChoice6">Больше 5000р.</label>
                             </div>
                         </div>

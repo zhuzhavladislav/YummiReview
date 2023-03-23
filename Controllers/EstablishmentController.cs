@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using MySqlX.XDevAPI.Common;
+using System.Globalization;
 
 namespace YummiReview.Controllers
 {
@@ -19,86 +21,34 @@ namespace YummiReview.Controllers
         {
             _dbContext = applicationDbContext;
         }
-        /*
-        [HttpGet]
-        public ActionResult<IEnumerable<Establishment>> GetEstablishments()
-        {
-            return _dbContext.Establishments;
-        }
-        */
 
         [HttpGet]
         public ActionResult<IQueryable<Establishments>> GetEstablishments(string? name = null, string? city = null, string? averageBill = null, string? type = null, string? kitchen = null, int? pageSize = null, int? pageNumber = null)
         {
             //var query = _dbContext.Establishments.AsQueryable();
 
-
-            var query = _dbContext.Establishments
-                .Join(
-                    _dbContext.Cities,
-                    o => o.City,
-                    c => c.Id,
-                    (o, c) => new
-                    {
-                        o.Id,
-                        o.Name,
-                        o.Type,
-                        o.Kitchen,
-                        City = c.Name,
-                        o.Street,
-                        o.Time,
-                        o.AverageBill,
-                        o.Phone,
-                        o.Article,
-                        o.Image,
-                        o.ScoreFood,
-                        o.ScoreService,
-                        o.ScoreAtmosphere,
-                        o.ScoreInterier
-                    }
-                ).Join(_dbContext.Kitchens,
-                    o => o.Kitchen,
-                    c => c.Id,
-                    (o, c) => new
-                    {
-                        o.Id,
-                        o.Name,
-                        o.Type,
-                        Kitchen = c.Name,
-                        o.City,
-                        o.Street,
-                        o.Time,
-                        o.AverageBill,
-                        o.Phone,
-                        o.Article,
-                        o.Image,
-                        o.ScoreFood,
-                        o.ScoreService,
-                        o.ScoreAtmosphere,
-                        o.ScoreInterier
-                    }
-                    ).Join(_dbContext.Types,
-                    o => o.Type,
-                    c => c.Id,
-                    (o, c) => new
-                    {
-                        o.Id,
-                        o.Name,
-                        Type = c.Name,
-                        o.Kitchen,
-                        o.City,
-                        o.Street,
-                        o.Time,
-                        o.AverageBill,
-                        o.Phone,
-                        o.Article,
-                        o.Image,
-                        o.ScoreFood,
-                        o.ScoreService,
-                        o.ScoreAtmosphere,
-                        o.ScoreInterier
-                    }
-                    ).AsQueryable();
+            var query = from e in _dbContext.Establishments
+                        join c in _dbContext.Cities on e.City equals c.Id
+                        join k in _dbContext.Kitchens on e.Kitchen equals k.Id
+                        join t in _dbContext.Types on e.Type equals t.Id
+                        select new
+                        {
+                            e.Id,
+                            e.Name,
+                            Type = t.Name,
+                            Kitchen = k.Name,
+                            City = c.Name,
+                            e.Street,
+                            e.Time,
+                            e.AverageBill,
+                            e.Phone,
+                            e.Article,
+                            e.Image,
+                            e.ScoreFood,
+                            e.ScoreService,
+                            e.ScoreAtmosphere,
+                            e.ScoreInterier
+                        };
 
             if (!String.IsNullOrEmpty(name))
             {
@@ -110,11 +60,18 @@ namespace YummiReview.Controllers
             }
             if (!String.IsNullOrEmpty(averageBill))
             {
-                string[] parts = averageBill.Split('-');
-                int num1 = int.Parse(parts[0]);
-                int num2 = int.Parse(parts[1]);
+                var selectedValues = averageBill.Split(",");
 
-                query = query.Where(p => (p.AverageBill >= num1) && (p.AverageBill <= num2));
+                var que = query.AsEnumerable();
+                que = que.Where(p =>
+                    selectedValues.Any(values =>
+                    {
+                        string[] parts = values.Split('-');
+                        int num1 = int.Parse(parts[0]);
+                        int num2 = int.Parse(parts[1]);
+                        return p.AverageBill >= num1 && p.AverageBill <= num2;
+                    }));
+                query = que.AsQueryable();
             }
             if (!String.IsNullOrEmpty(type))
             {
@@ -154,72 +111,29 @@ namespace YummiReview.Controllers
         [HttpGet("{id:int}")]
         public ActionResult<IQueryable<Establishments>> GetById(int id)
         {
-            var establishment = _dbContext.Establishments
-                .Join(
-                _dbContext.Cities,
-                o => o.City,
-                c => c.Id,
-                (o, c) => new
-                {
-                    o.Id,
-                    o.Name,
-                    o.Type,
-                    o.Kitchen,
-                    City = c.Name,
-                    o.Street,
-                    o.Time,
-                    o.AverageBill,
-                    o.Phone,
-                    o.Article,
-                    o.Image,
-                    o.ScoreFood,
-                    o.ScoreService,
-                    o.ScoreAtmosphere,
-                    o.ScoreInterier
-                }
-            ).Join(_dbContext.Kitchens,
-                o => o.Kitchen,
-                c => c.Id,
-                (o, c) => new
-                {
-                    o.Id,
-                    o.Name,
-                    o.Type,
-                    Kitchen = c.Name,
-                    o.City,
-                    o.Street,
-                    o.Time,
-                    o.AverageBill,
-                    o.Phone,
-                    o.Article,
-                    o.Image,
-                    o.ScoreFood,
-                    o.ScoreService,
-                    o.ScoreAtmosphere,
-                    o.ScoreInterier
-                }
-                ).Join(_dbContext.Types,
-                o => o.Type,
-                c => c.Id,
-                (o, c) => new
-                {
-                    o.Id,
-                    o.Name,
-                    Type = c.Name,
-                    o.Kitchen,
-                    o.City,
-                    o.Street,
-                    o.Time,
-                    o.AverageBill,
-                    o.Phone,
-                    o.Article,
-                    o.Image,
-                    o.ScoreFood,
-                    o.ScoreService,
-                    o.ScoreAtmosphere,
-                    o.ScoreInterier
-                }
-                ).AsQueryable().Where(p => p.Id == id);
+            var establishment = from e in _dbContext.Establishments
+                        join c in _dbContext.Cities on e.City equals c.Id
+                        join k in _dbContext.Kitchens on e.Kitchen equals k.Id
+                        join t in _dbContext.Types on e.Type equals t.Id
+                        where e.Id == id
+                        select new
+                        {
+                            e.Id,
+                            e.Name,
+                            Type = t.Name,
+                            Kitchen = k.Name,
+                            City = c.Name,
+                            e.Street,
+                            e.Time,
+                            e.AverageBill,
+                            e.Phone,
+                            e.Article,
+                            e.Image,
+                            e.ScoreFood,
+                            e.ScoreService,
+                            e.ScoreAtmosphere,
+                            e.ScoreInterier
+                        };
 
             return Ok(establishment);
         }
