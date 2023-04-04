@@ -1,0 +1,113 @@
+/* div {
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+} */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    font-family: 'Inter';
+    color: #1d2120;
+}
+
+a:link {
+    text-decoration: none;
+    color:#1d2120;
+}
+a:visited {
+    text-decoration: none;
+    color:#1d2120;
+}
+a:hover {
+    text-decoration: none;
+    color:#1d2120;
+}
+a:active {
+    text-decoration: none;
+    color:#1d2120;
+}
+
+h1 {
+    font-size: 4vw;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 2.5vw;
+    font-weight: 800;
+}
+h3 {
+    font-size: 1.5vw;
+    font-weight: 700;
+}
+h4 {
+    font-size: 1vw;
+    font-weight: 600;
+}
+p {
+    font-size: calc(1.2vmin + 0.4vw);
+}
+
+main {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.stars{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.button{
+    width: max-content;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: #1d2120;
+    font-size: calc(0.6vmin + 0.6vw);
+    font-weight: 300;
+    transition: 0.2s;
+}
+.button:hover{
+    cursor: pointer;
+    border-color: #f86021;
+    background-color: #f86021;
+    color: white;
+}
+#toTop{
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    right: 30px;
+    bottom: 30px;
+    background: url(../images/icons/arrow-up.svg) 0 0 no-repeat;
+    opacity: 0;
+    transition: 0.2s;
+}
+#toTop.display{
+    cursor: pointer;
+    display: flex;
+    opacity: 1;
+}
+#toTop:hover{
+    animation-name: changeBg;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+@keyframes changeBg{
+    0%,100%  {background: url(../images/icons/arrow-up.svg);}
+    50% {background: url(../images/icons/arrow-up-hover.svg);}
+ }

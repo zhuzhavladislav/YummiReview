@@ -1,0 +1,28 @@
+header {
+    padding-left: 15%;
+    padding-right: 15%;
+    display: flex;
+    height: 70px;
+    background-color: #fbf9f2;
+    align-items: center;
+    justify-content: space-between;
+}
+header img {
+    width: auto;
+    height: 3vw;
+}
+.menu{
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+    font-size: calc(1.2vmin + 0.6vw);
+    gap: 1.5vw;
+    transition: 0.2s;
+}
+.menu a:hover {
+    cursor: pointer;
+    color: #f86021;
+}
+.menu a:active {
+    color: #f86021;
+}
