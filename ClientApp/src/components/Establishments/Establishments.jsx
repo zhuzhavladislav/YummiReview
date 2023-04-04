@@ -6,21 +6,21 @@ import arrowDown from '../../images/icons/arrow-down.svg'
 import s from './Establishments.module.css'
 
 const Establishments = () => {
+    //Переменная для заведений
     const [data, setData] = useState()
-
+    //Переменные для поиска в фильтрации и выбора
     const [name, setName] = useState("")
     const [city, setCity] = useState("")
     const [averageBill, setAverageBill] = useState([])
     const [kitchen, setKitchen] = useState("")
-
+    //Модальное окно
     const [modal, setModal] = useState(false)
-
+    //Переменные для загрузки фильтрации
     const [cityList, setCityList] = useState()
     const [cityName, setCityName] = useState("")
-
     const [kitchenList, setKitchenList] = useState()
     const [kitchenName, setKitchenName] = useState("")
-
+    //Пагинация
     const [pageSize, setPageSize] = useState(4);
     const [pageNumber, setPageNumber] = useState(1);
     const [maxPages, setMaxPages] = useState(1);

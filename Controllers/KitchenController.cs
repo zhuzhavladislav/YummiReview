@@ -31,6 +31,14 @@ namespace YummiReview.Controllers
             return Ok(kitchens);
         }
 
+        [HttpPost]
+        public async Task<ActionResult> Create(Kitchens kitchen)
+        {
+            await _dbContext.Kitchens.AddAsync(kitchen);
+            await _dbContext.SaveChangesAsync();
+            return Ok(kitchen.Id);
+        }
+
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Kitchens>> GetById(int id)
         {

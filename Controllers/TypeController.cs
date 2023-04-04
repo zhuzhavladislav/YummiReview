@@ -31,6 +31,15 @@ namespace YummiReview.Controllers
             return Ok(types);
         }
 
+        [HttpPost]
+        public async Task<ActionResult> Create(Types type)
+        {
+            await _dbContext.Types.AddAsync(type);
+            await _dbContext.SaveChangesAsync();
+            return Ok(type.Id);
+        }
+
+
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Types>> GetById(int id)
         {

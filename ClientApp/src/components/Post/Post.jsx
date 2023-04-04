@@ -23,12 +23,15 @@ const Post = () => {
 
     const [typeList, setTypeList] = useState()
     const [typeName, setTypeName] = useState("")
+    const [newTypeName, setNewTypeName] = useState({name: ""})
 
     const [cityList, setCityList] = useState()
     const [cityName, setCityName] = useState("")
+    const [newCityName, setNewCityName] = useState({ name: "" })
 
     const [kitchenList, setKitchenList] = useState()
     const [kitchenName, setKitchenName] = useState("")
+    const [newKitchenName, setNewKitchenName] = useState({name: ""})
 
     const [time1, setTime1] = useState()
     const [time2, setTime2] = useState()
@@ -37,15 +40,15 @@ const Post = () => {
 
     useEffect(() => {
         fetchTypes()
-    }, [typeName])
+    }, [typeName, handleSubmit])
 
     useEffect(() => {
         fetchCities()
-    }, [cityName])
+    }, [cityName, handleSubmit])
 
     useEffect(() => {
         fetchKitchens()
-    }, [kitchenName])
+    }, [kitchenName, handleSubmit])
 
     const fetchTypes = () => {
         fetch(`/api/type?name=${typeName}`)
@@ -96,6 +99,73 @@ const Post = () => {
         event.preventDefault()
         const formData = new FormData();
         formData.append("image", image);
+        let cityId, kitchenId, typeId
+
+        if(newCityName.name != ""){
+            fetch(`/api/city`, {
+                method: "POST",
+                headers: {
+                    'accept': '*/*',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newCityName)
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        response.text().then((text) => {
+                            alert(text)
+                            console.log(text);
+                        })
+                    } else {
+                        response.text().then((text) => {
+                            cityId = text
+                        })
+
+                    }
+                })
+        }
+        if (newKitchenName.name != "") {
+            fetch(`/api/kitchen`, {
+                method: "POST",
+                headers: {
+                    'accept': '*/*',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newKitchenName)
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        response.text().then((text) => {
+                            alert(text.title)
+                        })
+                    } else {
+                        response.text().then((text) => {
+                            kitchenId = text
+                        })
+                    }
+                })
+        }
+        if (newTypeName.name != "") {
+            fetch(`/api/type`, {
+                method: "POST",
+                headers: {
+                    'accept': '*/*',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newTypeName)
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        response.text().then((text) => {
+                            alert(text.title)
+                        })
+                    } else {
+                        response.text().then((text) => {
+                            typeId = text
+                        })
+                    }
+                })
+        }
 
         fetch(`/api/establishment/addImage`, {
             method: "POST",
@@ -109,7 +179,13 @@ const Post = () => {
                 } else {
                     response.text()
                         .then((text) => {
-                            return { ...postData, image: text }
+                            return {
+                                ...postData,
+                                image: text,
+                                kitchen: kitchenId ? kitchenId : postData.kitchen,
+                                city: cityId ? cityId : postData.city,
+                                type: typeId ? typeId : postData.type
+                            }
                         })
                         .then((data) => {
                             fetch("/api/establishment", {
@@ -122,11 +198,34 @@ const Post = () => {
                             })
                                 .then((response) => {
                                     if (!response.ok){
-                                        alert(response)
+                                        response.text().then((text) => {
+                                            alert(text)
+                                        })
                                     } else {
                                         alert("Успешно добавлено")
+                                        setPostData({
+                                            ...postData,
+                                            name: "",
+                                            type: "",
+                                            kitchen: "",
+                                            averageBill: 0,
+                                            phone: "",
+                                            city: "",
+                                            street: "",
+                                            article: "",
+                                            scoreFood: 3,
+                                            scoreAtmosphere: 3,
+                                            scoreInterier: 3,
+                                            scoreService: 3
+                                        })
+                                        setNewCityName({ name: "" })
+                                        setNewKitchenName({ name: "" })
+                                        setNewTypeName({ name: "" })
+                                        fetchCities()
+                                        fetchKitchens()
+                                        fetchTypes()
                                     }
-                                    
+
                                 });
                         })
                 }
@@ -147,27 +246,29 @@ const Post = () => {
                     <legend>Тип заведения</legend>
                     <input type="text" id="type" placeholder="Поиск типа заведения" className={s.miniSearch} value={typeName} onChange={(e) => setTypeName(e.target.value)} />
                     <div className={s.radio}>
-                        {typeList ? typeList.map((item) =>
+                        {typeList && newTypeName.name == "" ? typeList.map((item) =>
                             <div key={"type_" + item.id}>
-                                <input required type="radio" id={"type_" + item.id}
+                                <input required type="radio" className={s.radioInput} id={"type_" + item.id}
                                     name="type" value={item.name} checked={postData.type === item.id} onChange={(e) => setPostData({ ...postData, type: item.id })} />
                                 <label htmlFor={"type_" + item.id}>{item.name}</label>
                             </div>
                         ) : null}
+                        {postData.type == "" ? <div style={{ display: "flex", flexDirection: "row", gap: 10, alignItems: "center" }}><p>Или добавьте свой вариант</p><input required={postData.type == "" ? true : false} type="text" id="newTypeName" placeholder="Добавить тип заведения" className={s.input} value={newTypeName.name} onChange={e => setNewTypeName({ ...newTypeName, name: e.target.value })} /></div> : null}
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Кухня</legend>
                     <input type="text" id="kitchen" placeholder="Поиск кухни" className={s.miniSearch} value={kitchenName} onChange={(e) => setKitchenName(e.target.value)} />
                     <div className={s.radio}>
-                        {kitchenList ? kitchenList.map((item) =>
+                        {kitchenList && newKitchenName.name == "" ? kitchenList.map((item) =>
                             <div key={"kitchen_" + item.id}>
-                                <input required type="radio" id={"kitchen_" + item.id}
+                                <input required type="radio" className={s.radioInput} id={"kitchen_" + item.id}
                                     name="kitchen" value={item.name} checked={postData.kitchen === item.id} onChange={(e) => setPostData({ ...postData, kitchen: item.id })} />
                                 <label htmlFor={"kitchen_" + item.id}>{item.name}</label>
                             </div>
                         ) : null}
                     </div>
+                    {postData.kitchen == "" ? <div style={{ display: "flex", flexDirection: "row", gap: 10, alignItems: "center" }}><p>Или добавьте свой вариант</p><input required={postData.kitchen == "" ? true : false} type="text" id="newKitchenName" placeholder="Добавить кухню" className={s.input} value={newKitchenName.name} onChange={e => setNewKitchenName({ ...newKitchenName, name: e.target.value })} /></div> : null}
                 </fieldset>
                 <fieldset>
                     <legend>Средний чек</legend>
@@ -194,14 +295,15 @@ const Post = () => {
                     <legend>Город</legend>
                     <input className={s.miniSearch} type="text" placeholder="Поиск города" value={cityName} onChange={(e) => setCityName(e.target.value)} />
                     <div className={s.radio}>
-                        {cityList ? cityList.map((item) =>
+                        {cityList && newCityName.name == "" ? cityList.map((item) =>
                             <div key={"city_" + item.id}>
-                                <input required type="radio" id={"city_" + item.id}
+                                <input required type="radio" className={s.radioInput} id={"city_" + item.id}
                                     name="city" value={item.name} checked={postData.city === item.id} onChange={(e) => setPostData({ ...postData, city: item.id })} />
                                 <label htmlFor={"city_" + item.id}>{item.name}</label>
                             </div>
                         ) : null}
                     </div>
+                    {postData.city == "" ? <div style={{ display: "flex", flexDirection: "row", gap: 10, alignItems: "center" }}><p>Или добавьте свой вариант</p><input required={postData.city == "" ? true : false} type="text" id="newCityName" placeholder="Добавить город" className={s.input} value={newCityName.name} onChange={e => setNewCityName({ ...newCityName, name: e.target.value })} /></div> : null}
                 </fieldset>
                 <fieldset>
                     <legend>Адрес</legend>

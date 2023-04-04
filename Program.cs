@@ -3,7 +3,21 @@ using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Security.Principal;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://localhost:3000")
+                                           .AllowAnyHeader()
+                                            .AllowAnyMethod()
+                                            .AllowAnyOrigin();
+                      });
+});
 
 // Add services to the container.
 
@@ -28,7 +42,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(o => o.UseMySQL(connectionSt
 /* ===================================== */
 
 var app = builder.Build();
-
+//app.UseCors(x => x
+//                    .AllowAnyMethod()
+//                    .AllowAnyHeader()
+//                    .SetIsOriginAllowed(origin => true) // allow any origin
+//                    .AllowCredentials()); // allow credentials
+app.UseCors(MyAllowSpecificOrigins);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

@@ -96,7 +96,7 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
-.radio input {
+.radioInput {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -114,7 +114,7 @@
   top: 4px;
 }
 
-.radio input:checked {
+.radioInput:checked {
   border: 6px solid #f86021;
 }
 .radio label{
